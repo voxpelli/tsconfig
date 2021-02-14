@@ -1,0 +1,28 @@
+{
+  "name": "@voxpelli/tsconfig",
+  "description": "Personal tsconfig bases",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
+  "homepage": "https://github.com/voxpelli/tsconfig",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/voxpelli/tsconfig.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxpelli/tsconfig/issues"
+  },
+  "files": [
+    "base.json",
+    "node12.json",
+    "node14.json",
+    "recommended.json"
+  ],
+  "scripts": {
+    "sync-gh-actions": "ghat",
+    "test": ""
+  },
+  "devDependencies": {
+    "ghat": "^0.14.0"
+  }
+}
