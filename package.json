@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "sync-gh-actions": "ghat",
-    "test": ""
+    "test": "echo \"No tests added\""
   },
   "devDependencies": {
     "ghat": "^0.14.0"
