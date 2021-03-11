@@ -19,6 +19,7 @@
     "resolveJsonModule": true,
 
     /* New checks being tried out */
+    "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
 
     /* Additional checks */
