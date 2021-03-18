@@ -24,5 +24,8 @@
   },
   "devDependencies": {
     "ghat": "^0.14.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.2.2"
   }
 }
