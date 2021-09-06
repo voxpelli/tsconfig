@@ -3,12 +3,10 @@
   "display": "Base",
 
   "compilerOptions": {
-    /* Taken from https://github.com/tsconfig/bases */
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": false,
-    "forceConsistentCasingInFileNames": true,
 
     /* My own additions */
 
@@ -19,13 +17,17 @@
     "resolveJsonModule": true,
 
     /* New checks being tried out */
+    "exactOptionalPropertyTypes": true,
+    // TODO: Check and see of noImplicitOverride works with JS
+    // "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
 
     /* Additional checks */
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "noUnusedParameters": true
 
     /* To make strict checking somewhat less strict during a transition stage, add one or more of: */
     /*
