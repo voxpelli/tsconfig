@@ -25,7 +25,8 @@
 
     /* Additional checks */
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
+    // Skipped as implicit "return undefined" at end of function is okay + explicit clashes with ESLint "no-useless-return"
+    // "noImplicitReturns": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true
 
