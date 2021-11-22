@@ -27,6 +27,6 @@
     "ghat": "^0.14.0"
   },
   "peerDependencies": {
-    "typescript": "~4.4.0 || ~4.5.1-rc"
+    "typescript": "~4.4.0 || ~4.5.0"
   }
 }
