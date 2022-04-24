@@ -19,8 +19,7 @@
 
     /* New checks being tried out */
     "exactOptionalPropertyTypes": true,
-    // TODO: Check and see of noImplicitOverride works with JS
-    // "noImplicitOverride": true,
+    "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
 
