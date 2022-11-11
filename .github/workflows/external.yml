@@ -82,15 +82,8 @@ jobs:
         run: echo "TS_VERSION=$(npx tsc --version | sed s/Version\ //)" >> $GITHUB_OUTPUT
         working-directory: ./main
 
-      - name: Show source TS version
-        run: echo " ${{ steps.source-ts.outputs.TS_VERSION }}"
-
-      - name: Show target TS version
-        run: echo " ${{ steps.target-ts.outputs.TS_VERSION }}"
-
       - name: replace typescript version ${{ steps.source-ts.outputs.TS_VERSION }} with ${{ steps.target-ts.outputs.TS_VERSION }}
         run: npm install --force typescript@${{ steps.target-ts.outputs.TS_VERSION }}
-        # if: ${{ steps.source-ts.outputs.TS_VERSION != steps.target-ts.outputs.TS_VERSION }}
         working-directory: ./project
 
       - name: show installed typescript version
