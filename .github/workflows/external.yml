@@ -86,6 +86,9 @@ jobs:
       - name: modify project config
         run: sed 's/"@voxpelli\/tsconfig\/"/"..\/main\/"/' tsconfig.json > tmp.tsconfig.json && rm tsconfig.json && mv tmp.tsconfig.json tsconfig.json
         working-directory: ./project
+      - name: show modified config
+        run: cat tsconfig.json
+        working-directory: ./project
 
       - run: npx tsc
         working-directory: ./project
