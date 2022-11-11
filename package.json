@@ -21,9 +21,9 @@
     "test": "echo \"No tests added\""
   },
   "devDependencies": {
-    "typescript": "~4.9.2-rc"
+    "typescript": "~4.6.4"
   },
   "peerDependencies": {
-    "typescript": "~4.9.2-rc"
+    "typescript": "~4.5.0 || ~4.6.0"
   }
 }
