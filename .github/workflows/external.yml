@@ -72,7 +72,7 @@ jobs:
         id: target-ts
         run: echo "TS_VERSION=$(npm list typescript --depth=0 | grep typescript@ | sed 's/^[^@]*@//')" >> $GITHUB_OUTPUT
         working-directory: ./main
-      - name: install typescript version ${{ matrix.ts_version }}
+      - name: install typescript version ${{ steps.target-ts.outputs.TS_VERSION }}
         run: npm install --force typescript@${{ steps.target-ts.outputs.TS_VERSION }}
         working-directory: ./project
       - name: show installed typescript version
