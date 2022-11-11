@@ -2,8 +2,10 @@
   "compliant": [
     "dependency-check-team/dependency-check",
     "voxpelli/async-htm-to-string",
+    "voxpelli/compare-eslint-configs",
     "voxpelli/eslint-formatter-summary",
     "voxpelli/linemod-core",
+    "voxpelli/linemod",
     "voxpelli/list-installed",
     "voxpelli/node-bunyan-adaptor",
     "voxpelli/node-connect-pg-simple",
@@ -16,10 +18,7 @@
     "voxpelli/semver-set",
     "voxpelli/version-guard"
   ],
-
   "nonCompliant": [
-    "voxpelli/compare-eslint-configs",
-    "voxpelli/linemod",
     "voxpelli/node-github-publish",
     "voxpelli/ts-ignore-import"
   ],
