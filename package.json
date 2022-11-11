@@ -20,6 +20,9 @@
   "scripts": {
     "test": "echo \"No tests added\""
   },
+  "devDependencies": {
+    "typescript": "~4.6.4"
+  },
   "peerDependencies": {
     "typescript": "~4.5.0 || ~4.6.0"
   }

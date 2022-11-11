@@ -1,0 +1,39 @@
+{
+  "compliant": [
+    "dependency-check-team/dependency-check",
+    "voxpelli/async-htm-to-string",
+    "voxpelli/eslint-formatter-summary",
+    "voxpelli/linemod-core",
+    "voxpelli/list-installed",
+    "voxpelli/node-bunyan-adaptor",
+    "voxpelli/node-connect-pg-simple",
+    "voxpelli/node-fulfills",
+    "voxpelli/node-installed-check-core",
+    "voxpelli/node-installed-check",
+    "voxpelli/node-pg-pubsub",
+    "voxpelli/node-promised-retry",
+    "voxpelli/pony-cause",
+    "voxpelli/semver-set",
+    "voxpelli/version-guard"
+  ],
+
+  "nonCompliant": [
+    "voxpelli/compare-eslint-configs",
+    "voxpelli/linemod",
+    "voxpelli/node-github-publish",
+    "voxpelli/ts-ignore-import"
+  ],
+  "noTsconfig": [
+    "voxpelli/metadataparser-mf2",
+    "voxpelli/node-tema",
+    "voxpelli/node-webmention-testpinger",
+    "voxpelli/webpage-micropub-to-github"
+  ],
+  "wrongExtend": [
+    "voxpelli/node-fetch-politely",
+    "voxpelli/node-format-microformat",
+    "voxpelli/node-jekyll-utils",
+    "voxpelli/node-micropub-express",
+    "voxpelli/webpage-webmentions"
+  ]
+}
