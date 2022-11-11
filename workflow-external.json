@@ -17,11 +17,11 @@
     "voxpelli/node-promised-retry",
     "voxpelli/pony-cause",
     "voxpelli/semver-set",
-    "voxpelli/ts-ignore-import",
     "voxpelli/version-guard"
   ],
 
   "nonCompliant": [
+    "voxpelli/ts-ignore-import"
   ],
   "noTsconfig": [
     "voxpelli/metadataparser-mf2",
