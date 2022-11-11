@@ -76,7 +76,7 @@ jobs:
         run: npm install --force typescript@${{ steps.target-ts.outputs.TS_VERSION }}
         working-directory: ./project
       - name: show installed typescript version
-        run: npm list typescript --depth=0
+        run: npx tsc --version
         working-directory: ./project
 
       - name: build project if needed

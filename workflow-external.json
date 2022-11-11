@@ -1,8 +1,35 @@
 {
   "compliant": [
-    "voxpelli/pony-cause"
+    "dependency-check-team/dependency-check",
+    "voxpelli/async-htm-to-string",
+    "voxpelli/compare-eslint-configs",
+    "voxpelli/linemod-core",
+    "voxpelli/linemod",
+    "voxpelli/list-installed",
+    "voxpelli/node-bunyan-adaptor",
+    "voxpelli/node-connect-pg-simple",
+    "voxpelli/node-fulfills",
+    "voxpelli/node-github-publish",
+    "voxpelli/node-installed-check-core",
+    "voxpelli/node-installed-check",
+    "voxpelli/node-pg-pubsub",
+    "voxpelli/node-promised-retry",
+    "voxpelli/pony-cause",
+    "voxpelli/semver-set",
+    "voxpelli/version-guard"
   ],
 
   "nonCompliant": [
+    "voxpelli/eslint-formatter-summary",
+    "voxpelli/metadataparser-mf2",
+    "voxpelli/node-fetch-politely",
+    "voxpelli/node-format-microformat",
+    "voxpelli/node-jekyll-utils",
+    "voxpelli/node-micropub-express",
+    "voxpelli/node-tema",
+    "voxpelli/node-webmention-testpinger",
+    "voxpelli/ts-ignore-import",
+    "voxpelli/webpage-micropub-to-github",
+    "voxpelli/webpage-webmentions"
   ]
 }
