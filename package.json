@@ -14,9 +14,7 @@
   },
   "files": [
     "base.json",
-    "node12.json",
-    "node14.json",
-    "node16.json",
+    "node*.json",
     "recommended.json"
   ],
   "scripts": {
