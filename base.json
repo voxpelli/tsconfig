@@ -3,13 +3,18 @@
   "display": "Base",
 
   "compilerOptions": {
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": false,
-    "removeComments": true,
+    "module": "node16",
+		"moduleResolution": "node16",
 
-    /* My own additions */
+    "strict": true,
+
+    "esModuleInterop": true, // Will be true anyhow because module is node16
+    "allowSyntheticDefaultImports": true, // Will be true anyhow because esModuleInterop is true
+    "skipLibCheck": false, // See https://github.com/voxpelli/tsconfig/issues/1
+
+    /* Clean up generated declarations */
+    "removeComments": true,
+    "stripInternal": true,
 
     /* Make it a JS-targeted config */
     "allowJs": true,
@@ -25,8 +30,7 @@
 
     /* Additional checks */
     "forceConsistentCasingInFileNames": true,
-    // Skipped as implicit "return undefined" at end of function is okay + explicit clashes with ESLint "no-useless-return"
-    // "noImplicitReturns": false,
+    "noImplicitReturns": false, // Deactivated as I believe implicit "return undefined" at end of function is okay + explicit clashes with ESLint "no-useless-return"
     "noUnusedLocals": true,
     "noUnusedParameters": true
 
