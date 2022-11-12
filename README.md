@@ -40,7 +40,6 @@ Inspired by [tsconfig/bases](https://github.com/tsconfig/bases).
 * `node18`
 * `node16`
 * `node14`
-* `node12`
 
 ## Can I use this in my own project?
 
