@@ -24,6 +24,7 @@
 
     /* New checks being tried out */
     "exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
