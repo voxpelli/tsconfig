@@ -4,7 +4,7 @@
 
   "compilerOptions": {
     "module": "node16",
-		"moduleResolution": "node16",
+    "moduleResolution": "node16",
 
     "strict": true,
 
@@ -24,7 +24,7 @@
 
     /* New checks being tried out */
     "exactOptionalPropertyTypes": true,
-		"noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
