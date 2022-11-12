@@ -1,5 +1,11 @@
 {
   "extends": [
     "@voxpelli"
-  ]
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": [
+      "@voxpelli:vpSchedule"
+    ]
+  }
 }
