@@ -14,6 +14,7 @@
   },
   "files": [
     "base.json",
+    "legacy.json",
     "node*.json",
     "recommended.json"
   ],
