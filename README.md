@@ -29,6 +29,7 @@ Then in your `tsconfig.json`, it [`extends`](https://www.typescriptlang.org/tsco
 ### Generic ones
 
 * `base` – where most of the configuration is set
+* `legacy` – like `base` but for older TypeScript versions – version 4.5 and onward
 * `recommended` – like `base` but adds a [`target`](https://www.typescriptlang.org/tsconfig#target) set to `ES2015`
 
 ### Node specific ones

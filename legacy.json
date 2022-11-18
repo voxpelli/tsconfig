@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Legacy",
+
+  "compilerOptions": {
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "removeComments": true,
+
+    /* My own additions */
+
+    /* Make it a JS-targeted config */
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+
+    /* New checks being tried out */
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* Additional checks */
+    "forceConsistentCasingInFileNames": true,
+    // Skipped as implicit "return undefined" at end of function is okay + explicit clashes with ESLint "no-useless-return"
+    // "noImplicitReturns": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+
+    /* To make strict checking somewhat less strict during a transition stage, add one or more of: */
+    /*
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    */
+  }
+}
