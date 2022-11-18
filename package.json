@@ -1,7 +1,7 @@
 {
   "name": "@voxpelli/tsconfig",
   "description": "Personal tsconfig bases",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "license": "MIT",
   "author": "Pelle Wessman <pelle@kodfabrik.se> (http://kodfabrik.se/)",
   "homepage": "https://github.com/voxpelli/tsconfig",
