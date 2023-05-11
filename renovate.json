@@ -1,11 +1,11 @@
 {
   "extends": [
-    "@voxpelli"
+    "github>voxpelli/renovate-config"
   ],
   "lockFileMaintenance": {
     "enabled": true,
     "extends": [
-      "@voxpelli:vpSchedule"
+      "github>voxpelli/renovate-config:schedule"
     ]
   }
 }
