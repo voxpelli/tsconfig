@@ -1,0 +1,28 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      releaseAs:
+        description: 'Release as version'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    uses: voxpelli/ghatemplates/.github/workflows/release-please.yml@main
+    secrets: inherit
+    with:
+      releaseAs: ${{ inputs.releaseAs }}
+      packageName: "@voxpelli/tsconfig"
+      bootstrapSha: e9e0a7f68a4ed1122db5ba408f1aca68ff1560e9
+      publishToGithub: true
