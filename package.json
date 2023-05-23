@@ -19,10 +19,13 @@
     "recommended.json"
   ],
   "scripts": {
+    "prepare": "husky install",
     "test": "echo \"No tests added\""
   },
   "devDependencies": {
-    "typescript": "~5.0.2"
+    "husky": "^8.0.3",
+    "typescript": "~5.0.2",
+    "validate-conventional-commit": "^1.0.2"
   },
   "peerDependencies": {
     "typescript": "~5.0.2"
