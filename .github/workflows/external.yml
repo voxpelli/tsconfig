@@ -19,6 +19,9 @@ on:
         options:
         - compliant
         - nonCompliant
+      tsVersion:
+        description: 'Use TS version'
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -79,7 +82,7 @@ jobs:
         working-directory: ./project
       - name: Get target TS version
         id: target-ts
-        run: echo "TS_VERSION=$(npx tsc --version | sed s/Version\ //)" >> $GITHUB_OUTPUT
+        run: echo "TS_VERSION=${{ github.event.inputs.tsVersion || '$(npx tsc --version | sed s/Version\ //)' }}" >> $GITHUB_OUTPUT
         working-directory: ./main
 
       - name: replace typescript version ${{ steps.source-ts.outputs.TS_VERSION }} with ${{ steps.target-ts.outputs.TS_VERSION }}
