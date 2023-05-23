@@ -83,6 +83,7 @@ jobs:
         working-directory: ./main
 
       - name: replace typescript version ${{ steps.source-ts.outputs.TS_VERSION }} with ${{ steps.target-ts.outputs.TS_VERSION }}
+        if: steps.source-ts.outputs.TS_VERSION != steps.target-ts.outputs.TS_VERSION
         run: npm install --force typescript@${{ steps.target-ts.outputs.TS_VERSION }}
         working-directory: ./project
 
