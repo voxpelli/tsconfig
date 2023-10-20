@@ -1,5 +1,16 @@
 # Changelog
 
+## [9.0.0](https://github.com/voxpelli/tsconfig/compare/v8.0.0...v9.0.0) (2023-10-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* update dependency typescript to ~5.2.2 ([#21](https://github.com/voxpelli/tsconfig/issues/21))
+
+### Miscellaneous Chores
+
+* update dependency typescript to ~5.2.2 ([#21](https://github.com/voxpelli/tsconfig/issues/21)) ([7a76845](https://github.com/voxpelli/tsconfig/commit/7a768452c2a82dde0e5372e58329bf4c63d06c4a))
+
 ## [8.0.0](https://github.com/voxpelli/tsconfig/compare/v7.0.0...v8.0.0) (2023-06-02)
 
 
