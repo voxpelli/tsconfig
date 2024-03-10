@@ -1,5 +1,16 @@
 # Changelog
 
+## [11.0.0](https://github.com/voxpelli/tsconfig/compare/v10.1.0...v11.0.0) (2024-03-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* update dependency typescript to ~5.4.2 ([#30](https://github.com/voxpelli/tsconfig/issues/30))
+
+### Miscellaneous Chores
+
+* update dependency typescript to ~5.4.2 ([#30](https://github.com/voxpelli/tsconfig/issues/30)) ([43a28fe](https://github.com/voxpelli/tsconfig/commit/43a28fe845d7b86ed3b9aa22564d45bc187c8ceb))
+
 ## [10.1.0](https://github.com/voxpelli/tsconfig/compare/v10.0.0...v10.1.0) (2024-03-10)
 
 
