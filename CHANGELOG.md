@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.1.0](https://github.com/voxpelli/tsconfig/compare/v10.0.0...v10.1.0) (2024-03-10)
+
+
+### Features
+
+* add `node20` config ([0ae41d6](https://github.com/voxpelli/tsconfig/commit/0ae41d6dae3af8a7a008f6ae54ed7babdde36391))
+
 ## [10.0.0](https://github.com/voxpelli/tsconfig/compare/v9.0.0...v10.0.0) (2023-11-21)
 
 
