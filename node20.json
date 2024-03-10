@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 20",
+
+  "extends": "./base.json",
+
+  "compilerOptions": {
+    "lib": ["es2023"],
+    "target": "es2022",
+  }
+}
