@@ -6,7 +6,7 @@
 
 My personal [types in js](https://github.com/voxpelli/types-in-js) focused tsconfig bases.
 
-Are meant to be used with javascript code, not typescript code, hence having eg. `noEmit: true` set.
+Are meant to be used with javascript code, not typescript code, hence they're having eg. `noEmit: true` set.
 
 ## Usage
 
@@ -18,7 +18,7 @@ Then in your `tsconfig.json`, it [`extends`](https://www.typescriptlang.org/tsco
 
 ```json
 {
-  "extends": "@voxpelli/tsconfig/node18.json",
+  "extends": "@voxpelli/tsconfig/node20.json",
   "files": [
     "index.js"
   ],
@@ -32,19 +32,20 @@ Then in your `tsconfig.json`, it [`extends`](https://www.typescriptlang.org/tsco
 
 ### Generic ones
 
-* `base` – where most of the configuration is set
-* `legacy` – like `base` but for older TypeScript versions – version 4.5 and onward
-* `recommended` – like `base` but adds a [`target`](https://www.typescriptlang.org/tsconfig#target) set to `ES2015`
+* [`base`](base.json) – where most of the configuration is set
+* [`legacy`](legacy.json) – like `base` but for older TypeScript versions – version 4.5 and onward
+* [`recommended`](recommended.json) – like `base` but adds a [`target`](https://www.typescriptlang.org/tsconfig#target) set to `ES2015`
 
 ### Node specific ones
 
-Extends `base` and adds the correct [`lib`](https://www.typescriptlang.org/tsconfig#lib) and [`target`](https://www.typescriptlang.org/tsconfig#target) for that version of node.js.
+These extends `base` with the correct [`lib`](https://www.typescriptlang.org/tsconfig#lib) and [`target`](https://www.typescriptlang.org/tsconfig#target) for the node.js version.
 
 Inspired by [tsconfig/bases](https://github.com/tsconfig/bases).
 
-* `node18`
-* `node16`
-* `node14`
+* [`node20`](node20.json)
+* [`node18`](node18.json)
+* [`node16`](node16.json)
+* [`node14`](node14.json)
 
 ## Can I use this in my own project?
 
