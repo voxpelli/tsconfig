@@ -19,8 +19,9 @@
     "recommended.json"
   ],
   "scripts": {
+    "check": "tsc",
     "prepare": "husky",
-    "test": "echo \"No tests added\""
+    "test": "tsc"
   },
   "devDependencies": {
     "husky": "^9.0.11",
