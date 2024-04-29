@@ -1,0 +1,6 @@
+{
+  "extends": "./node18.json",
+  "files": [
+    "test.js"
+  ]
+}

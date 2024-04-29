@@ -31,7 +31,10 @@ permissions:
   contents: read
 
 jobs:
+  lint:
+    uses: voxpelli/ghatemplates/.github/workflows/lint.yml@main
   read_external_projects:
+    needs: lint
     name: Read list of ${{ github.event.inputs.moduleSet || 'compliant' }} external projects
     runs-on: ubuntu-latest
     outputs:
