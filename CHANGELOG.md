@@ -1,5 +1,16 @@
 # Changelog
 
+## [12.0.0](https://github.com/voxpelli/tsconfig/compare/v11.0.0...v12.0.0) (2024-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* update typescript to ~5.5.0-beta ([#37](https://github.com/voxpelli/tsconfig/issues/37))
+
+### Miscellaneous Chores
+
+* update typescript to ~5.5.0-beta ([#37](https://github.com/voxpelli/tsconfig/issues/37)) ([a62a4a3](https://github.com/voxpelli/tsconfig/commit/a62a4a36da75cd3440363501ab6df74b9b4b4523))
+
 ## [11.0.0](https://github.com/voxpelli/tsconfig/compare/v10.1.0...v11.0.0) (2024-03-10)
 
 
