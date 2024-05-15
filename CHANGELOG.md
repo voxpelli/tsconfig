@@ -1,5 +1,12 @@
 # Changelog
 
+## [12.0.1](https://github.com/voxpelli/tsconfig/compare/v12.0.0...v12.0.1) (2024-04-29)
+
+
+### Bug Fixes
+
+* relax to allow `~5.4.5` ([35c9a4a](https://github.com/voxpelli/tsconfig/commit/35c9a4a9bb1686c7f7d3958ea52152fd831b1166))
+
 ## [12.0.0](https://github.com/voxpelli/tsconfig/compare/v11.0.0...v12.0.0) (2024-04-29)
 
 
