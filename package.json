@@ -29,6 +29,6 @@
     "validate-conventional-commit": "^1.0.3"
   },
   "peerDependencies": {
-    "typescript": "~5.5.0"
+    "typescript": "~5.5.3"
   }
 }
