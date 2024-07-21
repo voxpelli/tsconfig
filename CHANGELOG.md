@@ -1,5 +1,22 @@
 # Changelog
 
+## [13.0.0](https://github.com/voxpelli/tsconfig/compare/v12.0.1...v13.0.0) (2024-07-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* update dependency typescript to ~5.5.3 ([#43](https://github.com/voxpelli/tsconfig/issues/43))
+* require typescript 5.5 ([#45](https://github.com/voxpelli/tsconfig/issues/45))
+
+### Features
+
+* require typescript 5.5 ([#45](https://github.com/voxpelli/tsconfig/issues/45)) ([11bc4a2](https://github.com/voxpelli/tsconfig/commit/11bc4a2d973724a21f174b3556e7f95d8b47ae27))
+
+
+### Bug Fixes
+
+* update dependency typescript to ~5.5.3 ([#43](https://github.com/voxpelli/tsconfig/issues/43)) ([6cdfdce](https://github.com/voxpelli/tsconfig/commit/6cdfdcec952c6cc75a250e57573825a2daa10cc5))
+
 ## [12.0.1](https://github.com/voxpelli/tsconfig/compare/v12.0.0...v12.0.1) (2024-04-29)
 
 
