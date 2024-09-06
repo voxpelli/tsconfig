@@ -25,10 +25,10 @@
   },
   "devDependencies": {
     "husky": "^9.1.5",
-    "typescript": "~5.5.3",
+    "typescript": "~5.5.4",
     "validate-conventional-commit": "^1.0.4"
   },
   "peerDependencies": {
-    "typescript": "~5.5.3"
+    "typescript": "~5.5.4"
   }
 }
