@@ -11,6 +11,7 @@
     "esModuleInterop": true, // Will be true anyhow because module is node16
     "allowSyntheticDefaultImports": true, // Will be true anyhow because esModuleInterop is true
     "skipLibCheck": false, // See https://github.com/voxpelli/tsconfig/issues/1
+    "types": ["node"], // Don't implicitly pull in declarations from `@types` packages
 
     /* Clean up generated declarations */
     "removeComments": true,
