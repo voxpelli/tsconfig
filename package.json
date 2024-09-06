@@ -24,6 +24,7 @@
     "test": "tsc"
   },
   "devDependencies": {
+    "@types/node": "^22.5.4",
     "husky": "^9.1.5",
     "typescript": "~5.5.3",
     "validate-conventional-commit": "^1.0.4"
