@@ -1,5 +1,22 @@
 # Changelog
 
+## [14.0.0](https://github.com/voxpelli/tsconfig/compare/v13.0.0...v14.0.0) (2024-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* update dependency typescript to ~5.5.4 ([#48](https://github.com/voxpelli/tsconfig/issues/48))
+* disable implicit `@types/` imports ([#50](https://github.com/voxpelli/tsconfig/issues/50))
+
+### Features
+
+* disable implicit `@types/` imports ([#50](https://github.com/voxpelli/tsconfig/issues/50)) ([3bdf101](https://github.com/voxpelli/tsconfig/commit/3bdf1011a634aa97fea461f0354c2cf8c1abb48a)), closes [#42](https://github.com/voxpelli/tsconfig/issues/42)
+
+
+### Bug Fixes
+
+* update dependency typescript to ~5.5.4 ([#48](https://github.com/voxpelli/tsconfig/issues/48)) ([77e3fbb](https://github.com/voxpelli/tsconfig/commit/77e3fbbab52458e3bfb3b28ac22143b9e5b8706b))
+
 ## [13.0.0](https://github.com/voxpelli/tsconfig/compare/v12.0.1...v13.0.0) (2024-07-21)
 
 
