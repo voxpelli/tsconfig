@@ -42,9 +42,10 @@ on:
         required: true
         type: string
 
-# Push and PR permissions are handled using a bot app, see the "actions/create-github-app-token" step
+# Push and PR permissions can also be handled using a bot app, see the "actions/create-github-app-token" step
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   diff:
