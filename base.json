@@ -29,6 +29,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
 
     /* Additional checks */
     "forceConsistentCasingInFileNames": true,
