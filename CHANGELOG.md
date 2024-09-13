@@ -1,5 +1,21 @@
 # Changelog
 
+## [15.0.0](https://github.com/voxpelli/tsconfig/compare/v14.0.0...v15.0.0) (2024-09-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* update dependency typescript to ~5.6.2 ([#54](https://github.com/voxpelli/tsconfig/issues/54))
+
+### 🌟 Features
+
+* add `noUncheckedSideEffectImports` ([#56](https://github.com/voxpelli/tsconfig/issues/56)) ([c93909e](https://github.com/voxpelli/tsconfig/commit/c93909e6c7bd87255c14f7eb529e680f01b29ca6))
+
+
+### 🩹 Fixes
+
+* update dependency typescript to ~5.6.2 ([#54](https://github.com/voxpelli/tsconfig/issues/54)) ([b831ea5](https://github.com/voxpelli/tsconfig/commit/b831ea58488cda8dc960cb4d18a154455475a1c1))
+
 ## [14.0.0](https://github.com/voxpelli/tsconfig/compare/v13.0.0...v14.0.0) (2024-09-06)
 
 
