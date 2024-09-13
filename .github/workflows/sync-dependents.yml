@@ -1,10 +1,6 @@
 name: Update dependents data
 
 on:
-  # FIXME: Remove before merging
-  pull_request:
-    branches:
-      - main
   schedule:
     # At 5:37 on Monday: https://crontab.guru/#37_5_*_*_1
     - cron: '37 5 * * 1'
