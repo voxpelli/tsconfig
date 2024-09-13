@@ -11,8 +11,8 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      runOnFailures:
-        description: 'Run on failures'
+      retestFailures:
+        description: 'Re-test failures'
         type: boolean
       tsVersion:
         description: 'Use TS version'
@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: set-matrix
-        run: echo "matrix=$(jq -s -c '${{ github.event.inputs.runOnFailures && '' || '[.[].[]] | unique | sort as $all | $all - ' }}[$exclude.[].[].[]]' dependents-data/source-*.json --slurpfile exclude dependents-data/failures.json)" >> $GITHUB_OUTPUT
+        run: echo "matrix=$(jq -s -c '${{ github.event.inputs.retestFailures && '[$exclude.[].[].[]]' || '[.[].[]] | unique | sort as $all | $all - [$exclude.[].[].[]]' }}' dependents-data/source-*.json --slurpfile exclude dependents-data/failures.json)" >> $GITHUB_OUTPUT
   test_external:
     needs: read_external_projects
     name: Test ${{ matrix.project }}
