@@ -1,0 +1,30 @@
+{
+  "nonCompliant": [
+    "voxpelli/meow-with-subcommands",
+    "voxpelli/node-github-publish",
+    "voxpelli/ts-ignore-import"
+  ],
+  "noTsconfig": [
+    "voxpelli/metadataparser-mf2",
+    "voxpelli/node-tema",
+    "voxpelli/node-webmention-testpinger",
+    "voxpelli/webpage-micropub-to-github"
+  ],
+  "relyingOnTooOldVersionOfThisModule": [
+    "Level/browser-level",
+    "Level/classic-level",
+    "Level/level",
+    "Level/many-level",
+    "Level/memory-level",
+    "Level/read-stream",
+    "Level/supports",
+    "Level/transcoder"
+  ],
+  "wrongExtend": [
+    "voxpelli/node-fetch-politely",
+    "voxpelli/node-format-microformat",
+    "voxpelli/node-jekyll-utils",
+    "voxpelli/node-micropub-express",
+    "voxpelli/webpage-webmentions"
+  ]
+}
