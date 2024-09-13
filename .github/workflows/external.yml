@@ -11,14 +11,9 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      moduleSet:
-        description: 'Module set'
-        required: true
-        default: 'nonCompliant'
-        type: choice
-        options:
-        - compliant
-        - nonCompliant
+      runOnFailures:
+        description: 'Run on failures'
+        type: boolean
       tsVersion:
         description: 'Use TS version'
         type: string
@@ -35,14 +30,14 @@ jobs:
     uses: voxpelli/ghatemplates/.github/workflows/lint.yml@main
   read_external_projects:
     needs: lint
-    name: Read list of ${{ github.event.inputs.moduleSet || 'compliant' }} external projects
+    name: Read list of projects
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
       - id: set-matrix
-        run: echo "matrix=$(cat workflow-external.json | jq -c '.${{ github.event.inputs.moduleSet || 'compliant' }}')" >> $GITHUB_OUTPUT
+        run: echo "matrix=$(jq -s -c '${{ github.event.inputs.runOnFailures && '' || '[.[].[]] | unique | sort as $all | $all - ' }}[$exclude.[].[].[]]' dependents-data/source-*.json --slurpfile exclude dependents-data/failures.json)" >> $GITHUB_OUTPUT
   test_external:
     needs: read_external_projects
     name: Test ${{ matrix.project }}

@@ -20,12 +20,17 @@
   ],
   "scripts": {
     "check": "tsc",
+    "dependents:0-update": "cd dependents-data/ && list-dependents list --precision 2 --field engines --include-historic -n @voxpelli/tsconfig",
+    "dependents:1-filter": "list-dependents filter --sort-download --min-downloads=0 --repository-prefix=https://github.com/ -i dependents-data/voxpelli__tsconfig.ndjson  | jq -s '[.[].repositoryUrl | sub(\"https://github.com/\";\"\";\"i\")] | unique | sort' > dependents-data/source-automatic.json",
+    "dependents": "run-s dependents:*",
     "prepare": "husky",
     "test": "tsc"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
     "husky": "^9.1.5",
+    "list-dependents-cli": "^2.5.2",
+    "npm-run-all2": "^6.2.2",
     "typescript": "~5.6.2",
     "validate-conventional-commit": "^1.0.4"
   },
