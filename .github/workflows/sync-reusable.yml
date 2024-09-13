@@ -10,17 +10,13 @@ on:
         required: false
 
     inputs:
-      pre-sync-script:
-        description: 'Something to run prior to syncing, to eg. copy old files that can be used for diffing later.'
-        type: string
-
       npm-sync-script:
           description: 'The name of the script to run as the sync.'
           required: true
           type: string
 
-      diff-script:
-        description: 'Something to run to make a sophisticated diff, eg. using files copied in pre-sync-script.'
+      diff-files:
+        description: 'A space separated list of file paths to append to "git diff" command to check if changed'
         type: string
 
       branch-name:
@@ -81,31 +77,20 @@ jobs:
       - run: npm ci --ignore-scripts --force --no-fund --no-audit
 
       # Actual syncing
-      - name: Prepare for diff
-        if: inputs.pre-sync-script
-        run: ${{ inputs.pre-sync-script }}
-          # run: >
-          # for PROJECT in $(jq -r 'join(" ")' dependents-data/projects.json); do
-          #   cp "dependents-data/$PROJECT.json" "dependents-data/$PROJECT-old.json"
-          # done
-
       - name: Run npm sync script
         run: npm run ${{ inputs.npm-sync-script }}
 
       - name: Diff
         id: diff
-        run: ${{ inputs.diff-script || 'true' }} && echo "hasDiff=true" >> "$GITHUB_OUTPUT"
-        # run: |
-          # for PROJECT in $(jq -r 'join(" ")' dependents-data/projects.json); do
-          #   if ! diff "dependents-data/$PROJECT-old.json" "dependents-data/$PROJECT.json"; then
-          #     echo "- Dependents in $PROJECT are diffing" >> "$GITHUB_STEP_SUMMARY"
-          #     echo "hasDiff=true" >> "$GITHUB_OUTPUT"
-          #   fi
-          # done
+        if: inputs.diff-files
+        run: |
+          if [[ "$(git diff --stat ${{ inputs.diff-files }})" != "" ]]; then
+              echo "hasDiff=true" >> "$GITHUB_OUTPUT"
+          fi
 
       # Generate bot token if APP_ID is set
       - uses: actions/create-github-app-token@v1
-        if: steps.diff.outputs.hasDiff && vars.APP_ID
+        if: vars.APP_ID && (steps.diff.outputs.hasDiff || !inputs.diff-files)
         id: app-token
         with:
           app-id: ${{ vars.APP_ID }}
@@ -123,7 +108,7 @@ jobs:
       # Inspired by https://github.com/actions/toolkit/blob/0db3029fcfcb1393a2b3ccd14caecd7a3460af4e/.github/workflows/update-github.yaml#L22-L23
       # And by https://github.com/actions/deploy-pages/blob/ff669327f73994ba35f45d1cd2fc81d82d1c852c/.github/workflows/rebuild-dependabot-prs.yml#L43-L44
       - name: Commit and push any changes
-        if: steps.diff.outputs.hasDiff
+        if: steps.diff.outputs.hasDiff || !inputs.diff-files
         id: push-changes
         run: |
           if [[ "$(git status --porcelain)" != "" ]]; then
