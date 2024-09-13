@@ -1,8 +1,7 @@
 {
   "nonCompliant": [
     "voxpelli/meow-with-subcommands",
-    "voxpelli/node-github-publish",
-    "voxpelli/ts-ignore-import"
+    "voxpelli/node-github-publish"
   ],
   "noTsconfig": [
     "voxpelli/metadataparser-mf2",
