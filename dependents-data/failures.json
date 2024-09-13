@@ -3,6 +3,7 @@
     "nhtf/pg-session-store"
   ],
   "nonCompliant": [
+    "bcomnes/async-neocities",
     "voxpelli/meow-with-subcommands",
     "voxpelli/node-github-publish"
   ],
@@ -18,9 +19,11 @@
     "Level/level",
     "Level/many-level",
     "Level/memory-level",
+    "Level/rave-level",
     "Level/read-stream",
     "Level/supports",
-    "Level/transcoder"
+    "Level/transcoder",
+    "Level/web-stream"
   ],
   "wrongExtend": [
     "voxpelli/node-fetch-politely",
