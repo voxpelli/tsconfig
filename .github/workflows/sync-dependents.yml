@@ -20,7 +20,7 @@ permissions:
 jobs:
   sync:
     name: Update dependents data
-    if: (github.event_name == 'schedule' && github.repository == 'voxpelli/tsconfig') || github.event_name == 'workflow_dispatch'
+    if: github.event_name != 'schedule' || github.repository == 'voxpelli/tsconfig'
     uses: ./.github/workflows/sync-reusable.yml
     secrets: inherit
     with:
