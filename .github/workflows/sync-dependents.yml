@@ -1,0 +1,32 @@
+name: Update dependents data
+
+on:
+  schedule:
+    # At 5:37 on Monday: https://crontab.guru/#37_5_*_*_1
+    - cron: '37 5 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    name: Update dependents data
+    if: github.event_name != 'schedule' || github.repository == 'voxpelli/tsconfig'
+    uses: ./.github/workflows/sync-reusable.yml
+    secrets: inherit
+    with:
+      npm-sync-script: 'dependents'
+      branch-name: 'automated/refresh'
+      commit-message: 'chore(dependents): update npm data'
+      pr-title: 'chore(dependents): update npm data'
+      pr-body: |
+        The dependents data is outdated and needs to be updated.
+
+        This PR contains updated dependents data. Verify that everything looks alright and that tests passes, then merge.
+
+        _Do not push to this PR. It's handled by [a workflow](/${{ github.repository }}/actions/runs/${{ github.run_id }}) which keeps it up to date at a schedule._
