@@ -20,8 +20,10 @@
   ],
   "scripts": {
     "check": "tsc",
-    "dependents:0-update": "cd dependents-data/ && list-dependents list --precision 2 --field engines --include-historic -n @voxpelli/tsconfig",
+    "dependents:0-update": "cd dependents-data/ && list-dependents list --precision=3 --min-downloads=10 --field engines --include-historic -n @voxpelli/tsconfig",
     "dependents:1-filter": "list-dependents filter --sort-download --min-downloads=0 --repository-prefix=https://github.com/ -i dependents-data/voxpelli__tsconfig.ndjson  | jq -s '[.[].repositoryUrl | sub(\"https://github.com/\";\"\";\"i\")] | unique | sort' > dependents-data/source-automatic.json",
+    "dependents:2-join": "jq -s '[.[].[]] | unique | sort as $all | $all - [$exclude.[].[].[]]' dependents-data/source-*.json --slurpfile exclude dependents-data/failures.json > dependents-data/joined.json",
+    "dependents-dedupe-manual": "jq '. as $all | $all - $exclude.[]' dependents-data/source-manual.json --slurpfile exclude dependents-data/source-automatic.json",
     "dependents": "run-s dependents:*",
     "prepare": "husky",
     "test": "tsc"

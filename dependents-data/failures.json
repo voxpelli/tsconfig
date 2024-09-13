@@ -1,4 +1,7 @@
 {
+  "isFork": [
+    "nhtf/pg-session-store"
+  ],
   "nonCompliant": [
     "voxpelli/meow-with-subcommands",
     "voxpelli/node-github-publish"
