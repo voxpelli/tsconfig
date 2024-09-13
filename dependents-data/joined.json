@@ -17,6 +17,7 @@
   "voxpelli/list-installed",
   "voxpelli/markdown-or-chalk",
   "voxpelli/node-bunyan-adaptor",
+  "voxpelli/node-cli-template",
   "voxpelli/node-connect-pg-simple",
   "voxpelli/node-fulfills",
   "voxpelli/node-installed-check",
