@@ -47,7 +47,7 @@ jobs:
   diff:
     name: Sync ${{ inputs.npm-sync-script }}
     environment: sync
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       # Set up repository
       - uses: actions/checkout@v4
