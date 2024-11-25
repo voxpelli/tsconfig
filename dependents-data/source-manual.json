@@ -2,6 +2,7 @@
   "voxpelli/chai-posix-path",
   "voxpelli/node-cli-template",
   "voxpelli/node-module-template",
+  "voxpelli/umzeption",
   "voxpelli/webring-opml",
   "yikesable/fastify-acl"
 ]
