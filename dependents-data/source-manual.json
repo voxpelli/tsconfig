@@ -4,5 +4,5 @@
   "voxpelli/node-module-template",
   "voxpelli/umzeption",
   "voxpelli/webring-opml",
-  "yikesable/fastify-acl"
+  "yikesable/rbac"
 ]

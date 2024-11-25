@@ -40,5 +40,5 @@
   "voxpelli/version-guard",
   "voxpelli/webring-opml",
   "vweevers/module-error",
-  "yikesable/fastify-acl"
+  "yikesable/rbac"
 ]
