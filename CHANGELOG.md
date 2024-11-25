@@ -1,5 +1,19 @@
 # Changelog
 
+## [15.1.0](https://github.com/voxpelli/tsconfig/compare/v15.0.0...v15.1.0) (2024-11-25)
+
+
+### 🌟 Features
+
+* allow TS 5.7 ([#67](https://github.com/voxpelli/tsconfig/issues/67)) ([b90e72f](https://github.com/voxpelli/tsconfig/commit/b90e72f4496868be0ae56ce9d3f54172e2144e03))
+
+
+### 🧹 Chores
+
+* **deps:** lock file maintenance ([#49](https://github.com/voxpelli/tsconfig/issues/49)) ([3178468](https://github.com/voxpelli/tsconfig/commit/3178468475c3f03f7223354fc82263fb051dc9f0))
+* **deps:** update dev dependencies ([4565fb2](https://github.com/voxpelli/tsconfig/commit/4565fb275903820382066fcd3f46c6b33b5578d8))
+* update dependents data ([49286b4](https://github.com/voxpelli/tsconfig/commit/49286b4e258b27ebb653613c3b6ea2493f9ef726))
+
 ## [15.0.0](https://github.com/voxpelli/tsconfig/compare/v14.0.0...v15.0.0) (2024-09-13)
 
 
