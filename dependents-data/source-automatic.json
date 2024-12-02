@@ -9,6 +9,7 @@
   "Level/read-stream",
   "Level/supports",
   "Level/transcoder",
+  "Level/web-stream",
   "bcomnes/argsclopts",
   "bcomnes/async-neocities",
   "bcomnes/top-bun",
@@ -43,6 +44,7 @@
   "voxpelli/ts-ignore-import",
   "voxpelli/type-helpers",
   "voxpelli/typed-utils",
+  "voxpelli/umzeption",
   "voxpelli/validate-conventional-commit",
   "voxpelli/version-guard",
   "vweevers/module-error"
