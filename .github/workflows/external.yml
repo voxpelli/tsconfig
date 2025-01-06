@@ -109,3 +109,5 @@ jobs:
     needs: test_external
     name: Tests completed
     runs-on: ubuntu-latest
+    steps:
+    - run: echo Success!
