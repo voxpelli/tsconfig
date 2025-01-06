@@ -1,5 +1,17 @@
 # Changelog
 
+## [15.1.1](https://github.com/voxpelli/tsconfig/compare/v15.1.0...v15.1.1) (2025-01-06)
+
+
+### 🧹 Chores
+
+* **dependents:** update npm data ([#71](https://github.com/voxpelli/tsconfig/issues/71)) ([e4d0a7b](https://github.com/voxpelli/tsconfig/commit/e4d0a7b70a18d0ae9ae8b621ede8a9042e25eeba))
+* **dependents:** update npm data ([#78](https://github.com/voxpelli/tsconfig/issues/78)) ([55832d8](https://github.com/voxpelli/tsconfig/commit/55832d8074a3ef99c1696ad5e6ed40951ad65e78))
+* **deps:** lock file maintenance ([#77](https://github.com/voxpelli/tsconfig/issues/77)) ([d0e9fb8](https://github.com/voxpelli/tsconfig/commit/d0e9fb82adf1b9515f62b45ca640cc8d1681ddc5))
+* **deps:** update dependency @types/node to ^22.10.3 ([#75](https://github.com/voxpelli/tsconfig/issues/75)) ([f5827bf](https://github.com/voxpelli/tsconfig/commit/f5827bf8b8a3494cb5e9f664c79edbdd07804e58))
+* **deps:** update dependency list-dependents-cli to ^2.7.1 ([#76](https://github.com/voxpelli/tsconfig/issues/76)) ([1702791](https://github.com/voxpelli/tsconfig/commit/17027918f70a253072f9ae9dad7bc3fced724e54))
+* **deps:** update dependency npm-run-all2 to ^7.0.2 ([#74](https://github.com/voxpelli/tsconfig/issues/74)) ([8fdfb2d](https://github.com/voxpelli/tsconfig/commit/8fdfb2db791b9a801bf8109e6abb444e57912dca))
+
 ## [15.1.0](https://github.com/voxpelli/tsconfig/compare/v15.0.0...v15.1.0) (2024-11-25)
 
 
