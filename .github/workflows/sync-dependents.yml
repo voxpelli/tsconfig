@@ -17,9 +17,10 @@ jobs:
   sync:
     name: Update dependents data
     if: github.event_name != 'schedule' || github.repository == 'voxpelli/tsconfig'
-    uses: ./.github/workflows/sync-reusable.yml
+    uses: voxpelli/ghatemplates/.github/workflows/sync-reusable.yml
     secrets: inherit
     with:
+      app-id: '1082006'
       npm-sync-script: 'dependents'
       branch-name: 'automated/refresh'
       commit-message: 'chore(dependents): update npm data'
