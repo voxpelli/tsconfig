@@ -29,7 +29,7 @@
     "test": "tsc"
   },
   "devDependencies": {
-    "@types/node": "^22.10.3",
+    "@types/node": "^22.10.5",
     "husky": "^9.1.7",
     "list-dependents-cli": "^2.7.1",
     "npm-run-all2": "^7.0.2",
