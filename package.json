@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/node": "^22.10.3",
     "husky": "^9.1.7",
-    "list-dependents-cli": "^2.6.1",
+    "list-dependents-cli": "^2.7.1",
     "npm-run-all2": "^7.0.2",
     "typescript": "~5.7.2",
     "validate-conventional-commit": "^1.0.4"
