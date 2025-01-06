@@ -17,7 +17,7 @@ jobs:
   sync:
     name: Update dependents data
     if: github.event_name != 'schedule' || github.repository == 'voxpelli/tsconfig'
-    uses: voxpelli/ghatemplates/.github/workflows/sync-reusable.yml
+    uses: voxpelli/ghatemplates/.github/workflows/sync-reusable.yml@main
     secrets: inherit
     with:
       app-id: '1082006'
