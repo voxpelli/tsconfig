@@ -21,6 +21,7 @@ jobs:
     secrets: inherit
     with:
       app-id: '1082006'
+      lockfile: true
       npm-sync-script: 'dependents'
       branch-name: 'automated/refresh'
       commit-message: 'chore(dependents): update npm data'

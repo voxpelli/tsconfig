@@ -16,3 +16,5 @@ jobs:
     secrets: inherit
     with:
       app-id: '1082006'
+      lockfile: true
+      publish-to-github: true
