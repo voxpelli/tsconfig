@@ -105,3 +105,7 @@ jobs:
 
       - run: npx tsc
         working-directory: ./project
+  test_external_completed:
+    needs: test_external
+    name: Tests completed
+    runs-on: ubuntu-latest
