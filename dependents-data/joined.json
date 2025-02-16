@@ -10,7 +10,6 @@
   "voxpelli/config-array-find-files",
   "voxpelli/eslint-config",
   "voxpelli/eslint-formatter-summary",
-  "voxpelli/linemod",
   "voxpelli/linemod-core",
   "voxpelli/list-dependents",
   "voxpelli/list-dependents-cli",
