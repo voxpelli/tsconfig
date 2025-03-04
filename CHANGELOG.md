@@ -1,5 +1,17 @@
 # Changelog
 
+## [15.1.2](https://github.com/voxpelli/tsconfig/compare/v15.1.1...v15.1.2) (2025-03-04)
+
+
+### 🧹 Chores
+
+* **dependents:** update npm data ([#81](https://github.com/voxpelli/tsconfig/issues/81)) ([d133194](https://github.com/voxpelli/tsconfig/commit/d133194c7f22dd668f860390fda7bfe01c7e21cd))
+* **dependents:** update npm data ([#82](https://github.com/voxpelli/tsconfig/issues/82)) ([a4e5163](https://github.com/voxpelli/tsconfig/commit/a4e5163992e835450ea994bb384ab2753f97181f))
+* **dependents:** update npm data ([#83](https://github.com/voxpelli/tsconfig/issues/83)) ([f5938a9](https://github.com/voxpelli/tsconfig/commit/f5938a99c631b7025643453bfdc98185b6d69d11))
+* **deps:** lock file maintenance ([#86](https://github.com/voxpelli/tsconfig/issues/86)) ([245573e](https://github.com/voxpelli/tsconfig/commit/245573e549b5edffb04310fdef771f4beefe9245))
+* **deps:** update dependency @types/node to ^22.10.5 ([#79](https://github.com/voxpelli/tsconfig/issues/79)) ([b1388e2](https://github.com/voxpelli/tsconfig/commit/b1388e21e38b38aa821c4939da5488760757f91f))
+* update dependency typescript to v5.8.2 ([#84](https://github.com/voxpelli/tsconfig/issues/84)) ([1bb2fce](https://github.com/voxpelli/tsconfig/commit/1bb2fce34bedd6279caf90f41e43d9143f51ad0c))
+
 ## [15.1.1](https://github.com/voxpelli/tsconfig/compare/v15.1.0...v15.1.1) (2025-01-06)
 
 
