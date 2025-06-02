@@ -1,5 +1,12 @@
 # Changelog
 
+## [15.1.3](https://github.com/voxpelli/tsconfig/compare/v15.1.2...v15.1.3) (2025-06-02)
+
+
+### 🧹 Chores
+
+* **dependents:** update npm data ([#88](https://github.com/voxpelli/tsconfig/issues/88)) ([36422f7](https://github.com/voxpelli/tsconfig/commit/36422f77eb40ac6b82d9cd17ec1503cb52f876ca))
+
 ## [15.1.2](https://github.com/voxpelli/tsconfig/compare/v15.1.1...v15.1.2) (2025-03-04)
 
 
