@@ -1,5 +1,26 @@
 # Changelog
 
+## [16.0.0](https://github.com/voxpelli/tsconfig/compare/v15.1.2...v16.0.0) (2025-08-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* add, improve and remove config presets ([#94](https://github.com/voxpelli/tsconfig/issues/94))
+
+### 🌟 Features
+
+* add, improve and remove config presets ([#94](https://github.com/voxpelli/tsconfig/issues/94)) ([fd6f478](https://github.com/voxpelli/tsconfig/commit/fd6f47815e008c8df001bbb6980dc03e31b0422a))
+
+
+### 🧹 Chores
+
+* **dependents:** update npm data ([#88](https://github.com/voxpelli/tsconfig/issues/88)) ([36422f7](https://github.com/voxpelli/tsconfig/commit/36422f77eb40ac6b82d9cd17ec1503cb52f876ca))
+* **dependents:** update npm data ([#93](https://github.com/voxpelli/tsconfig/issues/93)) ([0239a56](https://github.com/voxpelli/tsconfig/commit/0239a566754b6bbf3134bcb0dcf6cde159d7c444))
+* **deps:** lock file maintenance ([#87](https://github.com/voxpelli/tsconfig/issues/87)) ([f1eed2f](https://github.com/voxpelli/tsconfig/commit/f1eed2f26dc5ada594bef97a30ef338ae021af16))
+* **deps:** update dependency @types/node to ^22.17.0 ([#85](https://github.com/voxpelli/tsconfig/issues/85)) ([2ae6b5a](https://github.com/voxpelli/tsconfig/commit/2ae6b5af22972d2550a62264f802ca76acba4635))
+* **deps:** update dependency npm-run-all2 to v8 ([#91](https://github.com/voxpelli/tsconfig/issues/91)) ([4da95d5](https://github.com/voxpelli/tsconfig/commit/4da95d5bf863879c0d958eaaa3cae82976199004))
+* update dependency typescript to v5.9.2 ([#90](https://github.com/voxpelli/tsconfig/issues/90)) ([a7417dd](https://github.com/voxpelli/tsconfig/commit/a7417dd4fce94cabeb4d031d24417b070dfb6143))
+
 ## [15.1.2](https://github.com/voxpelli/tsconfig/compare/v15.1.1...v15.1.2) (2025-03-04)
 
 
