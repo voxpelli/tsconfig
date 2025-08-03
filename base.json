@@ -1,47 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Base",
+  "display": "Alias for compatibility",
 
-  "compilerOptions": {
-    "module": "node16",
-    "moduleResolution": "node16",
-
-    "strict": true,
-
-    "esModuleInterop": true, // Will be true anyhow because module is node16
-    "allowSyntheticDefaultImports": true, // Will be true anyhow because esModuleInterop is true
-    "skipLibCheck": false, // See https://github.com/voxpelli/tsconfig/issues/1
-    "types": ["node"], // Don't implicitly pull in declarations from `@types` packages
-
-    /* Clean up generated declarations */
-    "removeComments": true,
-    "stripInternal": true,
-
-    /* Make it a JS-targeted config */
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-
-    /* New checks being tried out */
-    "exactOptionalPropertyTypes": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
-
-    /* Additional checks */
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": false, // Deactivated as I believe implicit "return undefined" at end of function is okay + explicit clashes with ESLint "no-useless-return"
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
-
-    /* To make strict checking somewhat less strict during a transition stage, add one or more of: */
-    /*
-    "noImplicitThis": false,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
-    */
-  }
+  "extends": "./base-node-jsdoc.json",
 }

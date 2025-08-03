@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base Node.js Bare",
+
+  "compilerOptions": {
+    "strict": true,
+
+    "skipLibCheck": false, // See https://github.com/voxpelli/tsconfig/issues/1
+    "esModuleInterop": true, // Will be true anyhow because module is nodenext
+    "allowSyntheticDefaultImports": true, // Will be true anyhow because esModuleInterop is true
+
+    /* Node.js Module Setup */
+    "module": "nodenext", // Supports require() of ESM, see: https://www.typescriptlang.org/docs/handbook/modules/reference.html#node16-node18-nodenext
+    "moduleResolution": "nodenext", // Default when module is nodenext
+
+    "lib": ["esnext"], // Avoids DOM libraries etc being included
+    "target": "esnext", // Default when module is nodenext
+
+    "types": ["node"], // Avoids automatic inclusion of all visible ”@types” packages to be included
+
+    /* Clean up generated declarations */
+    "removeComments": true,
+    "stripInternal": true,
+
+    /* New checks being tried out */
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* Additional checks */
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": false, // Deactivated as I believe implicit "return undefined" at end of function is okay + explicit clashes with ESLint "no-useless-return"
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+
+    /* To make strict checking somewhat less strict during a transition stage, add one or more of: */
+    /*
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    */
+  }
+}

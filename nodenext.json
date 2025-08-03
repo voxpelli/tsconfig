@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node Next",
+
+  "extends": "./base-node-jsdoc.json"
+}

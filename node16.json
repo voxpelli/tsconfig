@@ -2,10 +2,14 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Node 16",
 
-  "extends": "./base.json",
+  "extends": "./base-node-jsdoc.json",
 
   "compilerOptions": {
     "lib": ["es2021"],
-    "target": "es2021"
+    "target": "es2021",
+
+    /* Overriding base config that's nodenext */
+    "module": "node16",
+    "moduleResolution": "node16" // Default when module is node16
   }
 }

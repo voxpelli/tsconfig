@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 22",
+
+  "extends": "./base-node-jsdoc.json",
+
+  "compilerOptions": {
+    /* Based on https://github.com/tsconfig/bases/blob/40be80edaa16e4e18d6cc01cc841f2c231a6907d/bases/node22.json#L7 */
+    "lib": [
+      "es2024",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Iterator"
+    ],
+    /* Based on https://github.com/tsconfig/bases/blob/40be80edaa16e4e18d6cc01cc841f2c231a6907d/bases/node22.json#L9 */
+    "target": "es2022",
+
+    /*
+     * Setting a strict module resolution
+     *
+     * Currently "nodenext" is an alias for "node16", but that might change, so lets pin it
+     *
+     * Docs: https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution
+     * Prior art: https://github.com/tsconfig/bases/blob/40be80edaa16e4e18d6cc01cc841f2c231a6907d/bases/node22.json#L14
+     */
+    "module": "nodenext",
+    "moduleResolution": "node16"
+  }
+}
