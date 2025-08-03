@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 24",
+
+  "extends": "./base-node-jsdoc.json",
+
+  "compilerOptions": {
+    /* Based on https://github.com/tsconfig/bases/blob/40be80edaa16e4e18d6cc01cc841f2c231a6907d/bases/node24.json#L7-L13 */
+    "lib": [
+      "es2024",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Iterator",
+      "ESNext.Promise"
+    ],
+    /* Based on https://github.com/tsconfig/bases/blob/40be80edaa16e4e18d6cc01cc841f2c231a6907d/bases/node24.json#L15 */
+    "target": "es2024",
+
+    /*
+     * Setting a strict module resolution
+     *
+     * Currently "nodenext" is an alias for "node16", but that might change, so lets pin it
+     *
+     * Docs: https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution
+     * Prior art: https://github.com/tsconfig/bases/blob/40be80edaa16e4e18d6cc01cc841f2c231a6907d/bases/node24.json#L20
+     */
+    "module": "nodenext",
+    "moduleResolution": "node16"
+  }
+}

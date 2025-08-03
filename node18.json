@@ -2,10 +2,14 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Node 18",
 
-  "extends": "./base.json",
+  "extends": "./base-node-jsdoc.json",
 
   "compilerOptions": {
     "lib": ["es2022"],
-    "target": "es2022"
+    "target": "es2022",
+
+    /* Overriding base config that's nodenext */
+    "module": "node18",
+    "moduleResolution": "node16" // Default when module is node18
   }
 }

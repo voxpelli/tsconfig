@@ -13,10 +13,8 @@
     "url": "https://github.com/voxpelli/tsconfig/issues"
   },
   "files": [
-    "base.json",
-    "legacy.json",
-    "node*.json",
-    "recommended.json"
+    "base*.json",
+    "node*.json"
   ],
   "scripts": {
     "check": "tsc",

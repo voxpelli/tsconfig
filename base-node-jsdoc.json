@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base Node.js JSDoc",
+
+  "extends": "./base-node-bare.json",
+
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "maxNodeModuleJsDepth": 0, // Fix when used with jsconfig.json, see https://github.com/voxpelli/types-in-js/discussions/25
+    "noEmit": true,
+    "resolveJsonModule": true
+  }
+}
