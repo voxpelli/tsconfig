@@ -32,7 +32,7 @@
     "@types/node": "^22.10.5",
     "husky": "^9.1.7",
     "list-dependents-cli": "^2.7.1",
-    "npm-run-all2": "^7.0.2",
+    "npm-run-all2": "^8.0.4",
     "typescript": "~5.9.2",
     "validate-conventional-commit": "^1.0.4"
   },
