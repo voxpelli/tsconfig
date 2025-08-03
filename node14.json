@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 14",
+
+  "extends": "./base-node-jsdoc.json",
+
+  "compilerOptions": {
+    "lib": ["es2020"],
+    "target": "es2020",
+
+    /* Overriding base config that's nodenext */
+    "module": "node16",
+    "moduleResolution": "node16" // Default when module is node16
+  }
+}

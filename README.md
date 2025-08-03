@@ -41,6 +41,8 @@ These extends `base-node-jsdoc` with the correct [`lib`](https://www.typescriptl
 
 Inspired by [tsconfig/bases](https://github.com/tsconfig/bases).
 
+* [`node14`](node14.json) _deprecated_
+* [`node16`](node16.json) _deprecated_
 * [`node18`](node18.json)
 * [`node20`](node20.json)
 * [`node22`](node22.json)
