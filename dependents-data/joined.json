@@ -3,7 +3,6 @@
   "bcomnes/argsclopts",
   "bcomnes/top-bun",
   "neostandard/neostandard",
-  "nxtedition/rocks-level",
   "voxpelli/async-htm-to-string",
   "voxpelli/buffered-async-iterable",
   "voxpelli/chai-posix-path",

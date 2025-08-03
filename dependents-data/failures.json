@@ -8,6 +8,7 @@
     "voxpelli/node-github-publish"
   ],
   "noTsconfig": [
+    "nxtedition/rocks-level",
     "voxpelli/metadataparser-mf2",
     "voxpelli/node-tema",
     "voxpelli/node-webmention-testpinger",
