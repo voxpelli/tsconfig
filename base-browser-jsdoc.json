@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Base Node.js JSDoc",
+  "display": "Base Browser JSDoc",
 
   "extends": [
-    "./base-node-bare.json",
+    "./base-browser-bare.json",
     "./base-jsdoc.json"
   ]
 }
