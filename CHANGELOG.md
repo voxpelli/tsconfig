@@ -1,5 +1,12 @@
 # Changelog
 
+## [16.1.0](https://github.com/voxpelli/tsconfig/compare/v16.0.0...v16.1.0) (2025-09-08)
+
+
+### 🌟 Features
+
+* add modern browser preset ([#95](https://github.com/voxpelli/tsconfig/issues/95)) ([2559f7e](https://github.com/voxpelli/tsconfig/commit/2559f7e4848b8b7dce283ab3c7e111607357c5cc))
+
 ## [16.0.0](https://github.com/voxpelli/tsconfig/compare/v15.1.2...v16.0.0) (2025-08-03)
 
 
