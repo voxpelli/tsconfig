@@ -28,16 +28,24 @@ Then add an [`extends`](https://www.typescriptlang.org/tsconfig#extends) to your
 }
 ```
 
+
 ## Available configs
 
-### Generic ones
+### Base ones
 
 * [`base-node-bare`](base-node-bare.json) – where most of the configuration is set (Node.js focused)
-* [`base-node-jsdoc`](base-node-jsdoc.json) – adds JSDoc related config to `base-node-bare`
+* [`base-jsdoc`](base-jsdoc.json) – adds JSDoc related config (now shared by both Node and Browser bases)
+* [`base-node-jsdoc`](base-node-jsdoc.json) – combines `base-node-bare` and `base-jsdoc` for Node.js+JSDoc
+* [`base-browser-bare`](base-browser-bare.json) – base config for browser environments
+* [`base-browser-jsdoc`](base-browser-jsdoc.json) – combines `base-browser-bare` and `base-jsdoc` for Browser+JSDoc
+
+### Browser specific ones
+
+* [`browser`](browser.json) – main browser config, replicates `base-browser-jsdoc`
 
 ### Node specific ones
 
-These extends `base-node-jsdoc` with the correct [`lib`](https://www.typescriptlang.org/tsconfig#lib), [`module`](https://www.typescriptlang.org/tsconfig#module), [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution) and [`target`](https://www.typescriptlang.org/tsconfig#target) for each Node.js version.
+These extend `base-node-jsdoc` with the correct [`lib`](https://www.typescriptlang.org/tsconfig#lib), [`module`](https://www.typescriptlang.org/tsconfig#module), [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution) and [`target`](https://www.typescriptlang.org/tsconfig#target) for each Node.js version.
 
 Inspired by [tsconfig/bases](https://github.com/tsconfig/bases).
 
