@@ -1,5 +1,20 @@
 # Changelog
 
+## [16.1.1](https://github.com/voxpelli/tsconfig/compare/v16.1.0...v16.1.1) (2026-02-09)
+
+
+### 📚 Documentation
+
+* add LICENSE file to the project ([0d69e2d](https://github.com/voxpelli/tsconfig/commit/0d69e2de936dab7b2ba1aecbd07da020b8a3973c))
+
+
+### 🧹 Chores
+
+* **deps:** lock file maintenance ([#103](https://github.com/voxpelli/tsconfig/issues/103)) ([8f4c9e7](https://github.com/voxpelli/tsconfig/commit/8f4c9e78b859ae04d261b186ecaf54855bc48f20))
+* **deps:** update actions/checkout action to v6 ([#101](https://github.com/voxpelli/tsconfig/issues/101)) ([b6b32a6](https://github.com/voxpelli/tsconfig/commit/b6b32a6b3f765eec8c7c3bf7c4c51457df22964b))
+* **deps:** update dependency @types/node to ^22.19.10 ([#100](https://github.com/voxpelli/tsconfig/issues/100)) ([82fa93b](https://github.com/voxpelli/tsconfig/commit/82fa93b18b3a737eb1b733719b186923b9e4f521))
+* **deps:** update dependency typescript to ~5.9.3 ([#99](https://github.com/voxpelli/tsconfig/issues/99)) ([c5369f7](https://github.com/voxpelli/tsconfig/commit/c5369f7c9f5701f22a1131486c06013cccdf2b6e))
+
 ## [16.1.0](https://github.com/voxpelli/tsconfig/compare/v16.0.0...v16.1.0) (2025-09-08)
 
 
