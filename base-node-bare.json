@@ -6,8 +6,8 @@
     "strict": true,
 
     "skipLibCheck": false, // See https://github.com/voxpelli/tsconfig/issues/1
-    "esModuleInterop": true, // Will be true anyhow because module is nodenext
-    "allowSyntheticDefaultImports": true, // Will be true anyhow because esModuleInterop is true
+    "esModuleInterop": true, // Default in TS 6.0+ and can no longer be set to false. Keep for TS 5.9 compat, remove when dropping 5.9
+    "allowSyntheticDefaultImports": true, // Default in TS 6.0+ and can no longer be set to false. Keep for TS 5.9 compat, remove when dropping 5.9
 
     /* Node.js Module Setup */
     "module": "nodenext", // Supports require() of ESM, see: https://www.typescriptlang.org/docs/handbook/modules/reference.html#node16-node18-nodenext
@@ -28,7 +28,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
+    "noUncheckedSideEffectImports": true, // Default in TS 6.0+. Keep for TS 5.9 compat, remove when dropping 5.9
 
     /* Additional checks */
     "forceConsistentCasingInFileNames": true,

@@ -57,6 +57,16 @@ Inspired by [tsconfig/bases](https://github.com/tsconfig/bases).
 * [`node24`](node24.json)
 * [`nodenext`](nodenext.json) (currently an alias for `base-node-jsdoc`)
 
+## TypeScript compatibility
+
+This package supports TypeScript 5.9 and 6.0.
+
+TypeScript 6.0 changed many defaults (`strict`, `esModuleInterop`, `allowSyntheticDefaultImports`, `noUncheckedSideEffectImports` are now all `true` by default; `types` defaults to `[]`). Since these configs already set these options explicitly, **users of this package are unaffected by TS 6.0's default changes**.
+
+Some explicit options are now redundant in TS 6.0 but are kept for backward compatibility with TS 5.9. They will be removed when TS 5.9 support is dropped. Similarly, `es2025` lib will be adopted in `node22`/`node24` configs once TS 5.9 is dropped (since `es2025` is only available from TS 6.0).
+
+TypeScript 6.0 is the last JS-based compiler release. TypeScript 7.0 (`tsgo`) is a native Go port with 10x faster type-checking. CI includes a `tsgo` validation job for forward-compatibility testing.
+
 ## Can I use this in my own project?
 
 Absolutely, my pleasure!
