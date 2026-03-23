@@ -35,6 +35,9 @@
     "typescript": "~6.0.0",
     "validate-conventional-commit": "^1.0.4"
   },
+  "engines": {
+    "typescript": ">=5.9"
+  },
   "peerDependencies": {
     "typescript": "~5.9.0 || ~6.0.0"
   }
