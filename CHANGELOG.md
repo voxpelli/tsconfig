@@ -1,5 +1,12 @@
 # Changelog
 
+## [16.2.1](https://github.com/voxpelli/tsconfig/compare/v16.2.0...v16.2.1) (2026-04-15)
+
+
+### 🩹 Fixes
+
+* use release-please with OIDC publishing ([853390c](https://github.com/voxpelli/tsconfig/commit/853390c28469103e90a214ad8c12d95f2f17767c))
+
 ## [16.2.0](https://github.com/voxpelli/tsconfig/compare/v16.1.0...v16.2.0) (2026-04-15)
 
 
