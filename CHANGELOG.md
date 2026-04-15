@@ -1,5 +1,33 @@
 # Changelog
 
+## [16.2.0](https://github.com/voxpelli/tsconfig/compare/v16.1.0...v16.2.0) (2026-04-15)
+
+
+### 🌟 Features
+
+* add TypeScript 6.0 support, drop pre-5.9 versions ([109c75e](https://github.com/voxpelli/tsconfig/commit/109c75e2dc5c410d0acc25965c052afb56be8670))
+
+
+### 📚 Documentation
+
+* add LICENSE file to the project ([0d69e2d](https://github.com/voxpelli/tsconfig/commit/0d69e2de936dab7b2ba1aecbd07da020b8a3973c))
+* add TypeScript 7.0 (tsgo) preparedness SWOT analysis ([00167eb](https://github.com/voxpelli/tsconfig/commit/00167ebb1e28f201254f5075d0fd151e6bcf1a63))
+
+
+### 🧹 Chores
+
+* add typescript engines constraint &gt;=5.9 ([24e7674](https://github.com/voxpelli/tsconfig/commit/24e76740fcbc0c3312491a4bc7671ee8139b8621))
+* **dependents:** update npm data ([#106](https://github.com/voxpelli/tsconfig/issues/106)) ([ea432d3](https://github.com/voxpelli/tsconfig/commit/ea432d3bfbacb6cca22c315c73a4f5cc5b037986))
+* **deps:** lock file maintenance ([#103](https://github.com/voxpelli/tsconfig/issues/103)) ([8f4c9e7](https://github.com/voxpelli/tsconfig/commit/8f4c9e78b859ae04d261b186ecaf54855bc48f20))
+* **deps:** lock file maintenance ([#111](https://github.com/voxpelli/tsconfig/issues/111)) ([085a85f](https://github.com/voxpelli/tsconfig/commit/085a85f293de2d263bd39f19dd18d86b0432016d))
+* **deps:** update actions/checkout action to v6 ([#101](https://github.com/voxpelli/tsconfig/issues/101)) ([b6b32a6](https://github.com/voxpelli/tsconfig/commit/b6b32a6b3f765eec8c7c3bf7c4c51457df22964b))
+* **deps:** update actions/setup-node action to v6 ([#102](https://github.com/voxpelli/tsconfig/issues/102)) ([71c8a85](https://github.com/voxpelli/tsconfig/commit/71c8a85380ea0590f3440343501c4bba1004e9ca))
+* **deps:** update actions/setup-node action to v6 ([#110](https://github.com/voxpelli/tsconfig/issues/110)) ([eeb793c](https://github.com/voxpelli/tsconfig/commit/eeb793c0056a05bde8759ec97412ef26d9f7198b))
+* **deps:** update dependency @types/node to ^22.19.10 ([#100](https://github.com/voxpelli/tsconfig/issues/100)) ([82fa93b](https://github.com/voxpelli/tsconfig/commit/82fa93b18b3a737eb1b733719b186923b9e4f521))
+* **deps:** update dependency @types/node to ^22.19.15 ([0d12d8e](https://github.com/voxpelli/tsconfig/commit/0d12d8e0bee56ab773592c36f50645ce29e77c5d))
+* **deps:** update dependency @types/node to ^22.19.17 ([#112](https://github.com/voxpelli/tsconfig/issues/112)) ([f69dcd2](https://github.com/voxpelli/tsconfig/commit/f69dcd2869667dfb12fcd1c6548ee503bacd7a74))
+* **deps:** update dependency typescript to ~5.9.3 ([#99](https://github.com/voxpelli/tsconfig/issues/99)) ([c5369f7](https://github.com/voxpelli/tsconfig/commit/c5369f7c9f5701f22a1131486c06013cccdf2b6e))
+
 ## [16.1.0](https://github.com/voxpelli/tsconfig/compare/v16.0.0...v16.1.0) (2025-09-08)
 
 
