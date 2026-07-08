@@ -105,20 +105,37 @@ jobs:
 
       - run: npx tsc
         working-directory: ./project
-  test_tsgo:
+  test_self:
     needs: lint
-    name: Validate with tsgo (TS 7)
+    name: Validate configs (TS ${{ matrix.ts_version }})
     runs-on: ubuntu-latest
-    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        # The TypeScript majors this package supports. In TS 7 the `tsc`
+        # binary is the native (Go) compiler, so this also covers tsgo.
+        ts_version: ['6.0', '7.0']
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: lts/*
       - run: npm install --ignore-scripts
-      - run: npm install @typescript/native-preview
-      - run: npx tsgo --version
-      - run: npx tsgo
+      - run: npm install --no-save typescript@${{ matrix.ts_version }}
+      - run: npx tsc --version
+      - name: Type-check every preset against the test stub
+        # Each user-facing preset is validated the same way the root
+        # tsconfig.json self-tests: extend it and point it at test.js.
+        # The `*-bare` bases and base-jsdoc are skipped on purpose — they
+        # set no allowJs/noEmit, so on their own tsc finds no inputs.
+        run: |
+          set -e
+          for preset in base base-node-jsdoc base-browser-jsdoc nodenext browser node14 node16 node18 node20 node22 node24 node26; do
+            echo "== ${preset} =="
+            printf '{"extends":"./%s.json","files":["test.js"]}' "${preset}" > "tmp.${preset}.tsconfig.json"
+            npx tsc -p "tmp.${preset}.tsconfig.json"
+            rm "tmp.${preset}.tsconfig.json"
+          done
   test_external_completed:
     needs: test_external
     name: Tests completed

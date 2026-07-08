@@ -51,21 +51,29 @@ Inspired by [tsconfig/bases](https://github.com/tsconfig/bases).
 
 * [`node14`](node14.json) _deprecated_
 * [`node16`](node16.json) _deprecated_
-* [`node18`](node18.json)
+* [`node18`](node18.json) _deprecated_
 * [`node20`](node20.json)
 * [`node22`](node22.json)
 * [`node24`](node24.json)
+* [`node26`](node26.json)
 * [`nodenext`](nodenext.json) (currently an alias for `base-node-jsdoc`)
 
 ## TypeScript compatibility
 
-This package supports TypeScript 5.9 and 6.0.
+This package supports TypeScript 6.0 and 7.0. (Need TypeScript 5.9? Stay on the `16.x` line.)
 
-TypeScript 6.0 changed many defaults (`strict`, `esModuleInterop`, `allowSyntheticDefaultImports`, `noUncheckedSideEffectImports` are now all `true` by default; `types` defaults to `[]`). Since these configs already set these options explicitly, **users of this package are unaffected by TS 6.0's default changes**.
+TypeScript 6.0 changed many defaults (`strict`, `esModuleInterop`, `allowSyntheticDefaultImports`, `noUncheckedSideEffectImports` are now all `true` by default; `types` defaults to `[]`). Since these configs already set the ones that matter explicitly, **users of this package are unaffected by those default changes**. The options that merely became redundant (`esModuleInterop`, `allowSyntheticDefaultImports`, `noUncheckedSideEffectImports`) have been dropped now that TS 5.9 is no longer supported.
 
-Some explicit options are now redundant in TS 6.0 but are kept for backward compatibility with TS 5.9. They will be removed when TS 5.9 support is dropped. Similarly, `es2025` lib will be adopted in `node22`/`node24` configs once TS 5.9 is dropped (since `es2025` is only available from TS 6.0).
+TypeScript 6.0 was the last release built on the JavaScript codebase. TypeScript 7.0 is the native Go rewrite (originally previewed as `tsgo`) with roughly 10x faster type-checking — and in TS 7 the regular `tsc` binary _is_ the native compiler. CI validates every preset against both TypeScript 6.0 and 7.0.
 
-TypeScript 6.0 is the last JS-based compiler release. TypeScript 7.0 (`tsgo`) is a native Go port with 10x faster type-checking. CI includes a `tsgo` validation job for forward-compatibility testing.
+### Migrating to TypeScript 7.0
+
+These configs need no changes to work under TS 7 — they already avoid every option TS 7 removed. A few things to know about your own code and config when moving to TS 7:
+
+* `ignoreDeprecations` no longer exists — options deprecated in TS 6.0 (e.g. `baseUrl`, `outFile`, `moduleResolution: node10`, `target: es5`) are now hard errors and must be removed.
+* JavaScript/JSDoc checking was rewritten: some tags such as `@enum` and `@constructor` are no longer recognised, and a few "relaxed" JS inference rules were dropped, so JSDoc-heavy code may surface new errors.
+* Type ordering in emitted declarations is now deterministic (content-based), so generated `.d.ts` output can differ from TS 6.0.
+* The legacy compiler API (`createProgram`, `createLanguageService`, …) is gone, so tools that import `typescript` as a library — including type-aware ESLint rules and `type-coverage` — may need their own tsgo-compatible releases before they work under TS 7.
 
 ## Can I use this in my own project?
 

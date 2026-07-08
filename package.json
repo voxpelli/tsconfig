@@ -32,13 +32,13 @@
     "husky": "^9.1.7",
     "list-dependents-cli": "^2.7.1",
     "npm-run-all2": "^8.0.4",
-    "typescript": "~6.0.0",
+    "typescript": "~7.0.0",
     "validate-conventional-commit": "^1.0.4"
   },
   "engines": {
-    "typescript": ">=5.9"
+    "typescript": ">=6.0"
   },
   "peerDependencies": {
-    "typescript": "~5.9.0 || ~6.0.0"
+    "typescript": "~6.0.0 || ~7.0.0"
   }
 }
