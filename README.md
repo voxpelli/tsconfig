@@ -73,7 +73,20 @@ These configs need no changes to work under TS 7 — they already avoid every op
 * `ignoreDeprecations` no longer exists — options deprecated in TS 6.0 (e.g. `baseUrl`, `outFile`, `moduleResolution: node10`, `target: es5`) are now hard errors and must be removed.
 * JavaScript/JSDoc checking was rewritten: some tags such as `@enum` and `@constructor` are no longer recognised, and a few "relaxed" JS inference rules were dropped, so JSDoc-heavy code may surface new errors.
 * Type ordering in emitted declarations is now deterministic (content-based), so generated `.d.ts` output can differ from TS 6.0.
-* The legacy compiler API (`createProgram`, `createLanguageService`, …) is gone, so tools that import `typescript` as a library — including type-aware ESLint rules and `type-coverage` — may need their own tsgo-compatible releases before they work under TS 7.
+* The legacy compiler API (`createProgram`, `createLanguageService`, …) is gone, so tools that import `typescript` as a library — including type-aware ESLint rules and `type-coverage` — may need their own tsgo-compatible releases before they work under TS 7. (A new API is expected in TypeScript 7.1.)
+
+Because these configs deliberately keep [`skipLibCheck: false`](https://github.com/voxpelli/tsconfig/issues/1), running `tsc` under TS 7 will also surface `TS2694 … has no exported member` errors from the bundled `.d.ts` of such tools (e.g. `@typescript-eslint/*`) that still reference the removed compiler API.
+
+Until the ecosystem catches up, TypeScript's own recommendation is to keep 6.0 available side-by-side via npm aliases — use `tsc` (7.0) for type-checking and the [`@typescript/typescript6`](https://www.npmjs.com/package/@typescript/typescript6) package (which re-exports the 6.0 API) for the tooling that needs it:
+
+```json
+{
+  "devDependencies": {
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-7": "npm:typescript@^7.0.2"
+  }
+}
+```
 
 ## Can I use this in my own project?
 

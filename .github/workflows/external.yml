@@ -40,12 +40,19 @@ jobs:
         run: echo "matrix=$(jq -c '${{ github.event.inputs.retestFailures && '[.[].[]]' || '.' }}' dependents-data/${{ github.event.inputs.retestFailures && 'failures.json' || 'joined.json' }})" >> $GITHUB_OUTPUT
   test_external:
     needs: read_external_projects
-    name: Test ${{ matrix.project }}
+    name: Test ${{ matrix.project }} (TS ${{ matrix.ts_version }})
     runs-on: ubuntu-latest
+    # The TS 7 leg is informational: much of the ecosystem (typescript-eslint,
+    # type-coverage, …) can't run under TS 7 until it ships a compiler API
+    # (expected in 7.1), so dependents that pull those in will fail on `tsc`
+    # here through no fault of this config. Keep it visible but non-blocking;
+    # the TS 6.0 leg is the real regression gate.
+    continue-on-error: ${{ matrix.ts_version == '7.0' }}
     strategy:
       fail-fast: false
       matrix:
         node_version: [lts/*]
+        ts_version: ['6.0', '7.0']
         project: ${{ fromJson(needs.read_external_projects.outputs.matrix) }}
     steps:
       - name: Checkout main project
@@ -80,7 +87,7 @@ jobs:
         working-directory: ./project
       - name: Get target TS version
         id: target-ts
-        run: echo "TS_VERSION=${{ github.event.inputs.tsVersion || '$(npx tsc --version | sed s/Version\ //)' }}" >> $GITHUB_OUTPUT
+        run: echo "TS_VERSION=${{ github.event.inputs.tsVersion || matrix.ts_version }}" >> $GITHUB_OUTPUT
         working-directory: ./main
 
       - name: replace typescript version ${{ steps.source-ts.outputs.TS_VERSION }} with ${{ steps.target-ts.outputs.TS_VERSION }}
