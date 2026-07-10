@@ -18,7 +18,7 @@ Then add an [`extends`](https://www.typescriptlang.org/tsconfig#extends) to your
 
 ```json
 {
-  "extends": "@voxpelli/tsconfig/node20.json",
+  "extends": "@voxpelli/tsconfig/node22.json",
   "files": [
     "index.js"
   ],
@@ -52,7 +52,7 @@ Inspired by [tsconfig/bases](https://github.com/tsconfig/bases).
 * [`node14`](node14.json) _deprecated_
 * [`node16`](node16.json) _deprecated_
 * [`node18`](node18.json) _deprecated_
-* [`node20`](node20.json)
+* [`node20`](node20.json) _deprecated_ (EOL since April 2026)
 * [`node22`](node22.json)
 * [`node24`](node24.json)
 * [`node26`](node26.json)
@@ -77,7 +77,7 @@ These configs need no changes to work under TS 7 — they already avoid every op
 
 Because these configs deliberately keep [`skipLibCheck: false`](https://github.com/voxpelli/tsconfig/issues/1), running `tsc` under TS 7 will also surface `TS2694 … has no exported member` errors from the bundled `.d.ts` of such tools (e.g. `@typescript-eslint/*`) that still reference the removed compiler API.
 
-Until the ecosystem catches up, TypeScript's own recommendation is to keep 6.0 available side-by-side via npm aliases — use `tsc` (7.0) for type-checking and the [`@typescript/typescript6`](https://www.npmjs.com/package/@typescript/typescript6) package (which re-exports the 6.0 API) for the tooling that needs it:
+Until the ecosystem catches up, TypeScript's own recommendation is to keep 6.0 available side-by-side via npm aliases — use TypeScript 7's `tsc` for type-checking and the [`@typescript/typescript6`](https://www.npmjs.com/package/@typescript/typescript6) package (which re-exports the 6.0 API) for the tooling that needs it:
 
 ```json
 {
@@ -87,6 +87,22 @@ Until the ecosystem catches up, TypeScript's own recommendation is to keep 6.0 a
   }
 }
 ```
+
+**Caveat:** with this setup, don't trust a bare `npx tsc` — the compat package transitively includes real TypeScript 6, whose `tsc` bin can win the `node_modules/.bin/tsc` link over `typescript-7`'s (npm picks an arbitrary winner on bin conflicts; in our testing the 6.0 bin won). Invoke TypeScript 7 by direct path instead, e.g. a script `"tsc7": "node node_modules/typescript-7/bin/tsc"`, and verify with `--version` (should report 7.x). With the alias in place, type-checking with `skipLibCheck: false` works again even alongside packages like `@typescript-eslint/*` whose bundled types still target the 6.0 compiler API.
+
+Also note: TypeScript 7 ships no `tsserver` binary — editors use its new LSP-based server instead, and any tooling that spawns `tsserver` needs TypeScript 6 present.
+
+#### Generating type declarations under TypeScript 7
+
+Declaration emit from JSDoc (`tsc --declaration --emitDeclarationOnly`, see [Generate types](#generate-types)) is supported and correct on TypeScript 7.0 for code that type-checks cleanly — emit is undefined while errors exist, so fix all TS 7 check errors first. Regenerate and diff your `.d.ts` once when switching from 6.0: output is now deterministically ordered, so expect cosmetic churn. Keep using 6.0 (via the `tsc6` bin from the compat package) for declaration emit only if you rely on `removeComments: false` JSDoc-comment retention or legacy tags. Similarly, [`type-coverage`](https://github.com/plantain-00/type-coverage) imports the compiler API and needs the 6.0 alias until TypeScript 7.1.
+
+#### How this package's CI tracks the transition
+
+Every downstream dependent in this repo's canary CI is type-checked in escalating tiers: plain TypeScript 7 first (`TS7-clean`), then TypeScript 7 with the compat aliases shown above (`TS7+compat`), then TypeScript 6 (`TS6-only`). A project's achieved tier is visible in the workflow run summaries, so ecosystem progress toward native TypeScript 7 support is observable over time; only failing all three tiers is a genuine regression.
+
+#### If a dependency's types break under TypeScript 7
+
+These configs deliberately keep `skipLibCheck: false`, which means broken `.d.ts` in your dependencies surfaces in *your* type-check. If a dependency you can't wait on ships types that are incompatible with TypeScript 7 and the alias setup above doesn't help, override locally in your own tsconfig — `"skipLibCheck": true` — and file the issue upstream, rather than staying off TypeScript 7 entirely.
 
 ## Can I use this in my own project?
 

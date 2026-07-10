@@ -2,5 +2,5 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Alias for compatibility",
 
-  "extends": "./base-node-jsdoc.json",
+  "extends": "./base-node-jsdoc.json"
 }
