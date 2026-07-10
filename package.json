@@ -18,6 +18,9 @@
     "node*.json"
   ],
   "scripts": {
+    "baseline:0-update": "npm install --no-save --ignore-scripts --no-fund --no-audit web-features@latest",
+    "baseline:1-check": "node .github/scripts/baseline-lib-check.mjs < node_modules/web-features/data.json",
+    "baseline": "run-s baseline:*",
     "check": "tsc",
     "dependents:0-update": "cd dependents-data/ && list-dependents list --precision=3 --min-downloads=10 --field engines --include-historic -n @voxpelli/tsconfig",
     "dependents:1-filter": "list-dependents filter --sort-download --min-downloads=0 --repository-prefix=https://github.com/ -i dependents-data/voxpelli__tsconfig.ndjson  | jq -s '[.[].repositoryUrl | sub(\"https://github.com/\";\"\";\"i\")] | unique | sort' > dependents-data/source-automatic.json",

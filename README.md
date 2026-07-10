@@ -43,6 +43,8 @@ Then add an [`extends`](https://www.typescriptlang.org/tsconfig#extends) to your
 
 * [`browser`](browser.json) – main browser config, replicates `base-browser-jsdoc`
 
+The browser presets intentionally set `"lib": ["ES2025", "DOM", "DOM.Iterable"]`. Note that ES2025 currently exceeds [Baseline](https://web.dev/baseline) _widely available_: per the official [web-features](https://github.com/web-platform-dx/web-features) dataset (July 2026), every ES2025 addition (Set methods, iterator helpers, `Promise.try`, `RegExp.escape`, `Float16Array`, …) is still Baseline _newly available_, with the last projected to reach widely-available in late 2027. TypeScript's `lib` describes which types exist — it is not a runtime guarantee — so this preset trusts you to know your own browser support target. If you need to stay within Baseline widely available, override locally with `"lib": ["ES2023", "DOM", "DOM.Iterable"]` (fully widely available except the rarely-typed symbols-as-`WeakMap`-keys) or `"ES2024"` once its remaining members cross over during 2026–2027. This alignment is tracked automatically — see [`baseline-data/`](baseline-data/).
+
 ### Node specific ones
 
 These extend `base-node-jsdoc` with the correct [`lib`](https://www.typescriptlang.org/tsconfig#lib), [`module`](https://www.typescriptlang.org/tsconfig#module), [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution) and [`target`](https://www.typescriptlang.org/tsconfig#target) for each Node.js version.
