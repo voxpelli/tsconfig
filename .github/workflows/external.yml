@@ -15,7 +15,7 @@ on:
         description: 'Re-test failures'
         type: boolean
       tsVersion:
-        description: 'Use TS version'
+        description: 'TS version for dependents-canary tiers 1-2 (default: 7.0)'
         type: string
 
 concurrency:
@@ -31,28 +31,24 @@ jobs:
   read_external_projects:
     needs: lint
     name: Read list of projects
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v6
       - id: set-matrix
-        run: echo "matrix=$(jq -c '${{ github.event.inputs.retestFailures && '[.[].[]]' || '.' }}' dependents-data/${{ github.event.inputs.retestFailures && 'failures.json' || 'joined.json' }})" >> $GITHUB_OUTPUT
+        # Typed `inputs` context: a real boolean on dispatch, empty (falsy) on
+        # push/PR — the legacy github.event.inputs form is a string, where
+        # even "false" is truthy and every dispatch would retest failures.
+        run: echo "matrix=$(jq -c '${{ inputs.retestFailures && '[.[].[]]' || '.' }}' dependents-data/${{ inputs.retestFailures && 'failures.json' || 'joined.json' }})" >> $GITHUB_OUTPUT
   test_external:
     needs: read_external_projects
-    name: Test ${{ matrix.project }} (TS ${{ matrix.ts_version }})
+    name: Test ${{ matrix.project }}
     runs-on: ubuntu-latest
-    # The TS 7 leg is informational: much of the ecosystem (typescript-eslint,
-    # type-coverage, …) can't run under TS 7 until it ships a compiler API
-    # (expected in 7.1), so dependents that pull those in will fail on `tsc`
-    # here through no fault of this config. Keep it visible but non-blocking;
-    # the TS 6.0 leg is the real regression gate.
-    continue-on-error: ${{ matrix.ts_version == '7.0' }}
     strategy:
       fail-fast: false
       matrix:
         node_version: [lts/*]
-        ts_version: ['6.0', '7.0']
         project: ${{ fromJson(needs.read_external_projects.outputs.matrix) }}
     steps:
       - name: Checkout main project
@@ -74,29 +70,10 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: install main
-        run: '[ -f package-lock.json ] && npm ci --ignore-scripts --force || npm install --ignore-scripts --force'
-        working-directory: ./main
+      # No install of ./main needed: the config swap below points `extends`
+      # at plain ../main/*.json files.
       - name: install project
         run: '[ -f package-lock.json ] && npm ci --ignore-scripts --force || npm install --ignore-scripts --force'
-        working-directory: ./project
-
-      - name: Get source TS version
-        id: source-ts
-        run: echo "TS_VERSION=$(npx tsc --version | sed s/Version\ //)" >> $GITHUB_OUTPUT
-        working-directory: ./project
-      - name: Get target TS version
-        id: target-ts
-        run: echo "TS_VERSION=${{ github.event.inputs.tsVersion || matrix.ts_version }}" >> $GITHUB_OUTPUT
-        working-directory: ./main
-
-      - name: replace typescript version ${{ steps.source-ts.outputs.TS_VERSION }} with ${{ steps.target-ts.outputs.TS_VERSION }}
-        if: steps.source-ts.outputs.TS_VERSION != steps.target-ts.outputs.TS_VERSION
-        run: npm install --force typescript@${{ steps.target-ts.outputs.TS_VERSION }}
-        working-directory: ./project
-
-      - name: show installed typescript version
-        run: npx tsc --version
         working-directory: ./project
 
       - name: build project if needed
@@ -104,14 +81,24 @@ jobs:
         working-directory: ./project
 
       - name: modify project config
-        run: sed 's/"@voxpelli\/tsconfig\//"..\/main\//' tsconfig.json > tmp.tsconfig.json && rm tsconfig.json && mv tmp.tsconfig.json tsconfig.json
+        run: sed 's/"@voxpelli\/tsconfig\//"..\/main\//g' tsconfig.json > tmp.tsconfig.json && rm tsconfig.json && mv tmp.tsconfig.json tsconfig.json
         working-directory: ./project
       - name: show modified config
-        run: cat tsconfig.json
+        run: cat tsconfig.json && ! grep '@voxpelli/tsconfig' tsconfig.json
         working-directory: ./project
 
-      - run: npx tsc
+      # Escalating type-check: plain TS 7 -> TS 7 via the compat aliases from
+      # the README migration guide -> TS 6. Green if any tier passes; red only
+      # if the project fails even under TS 6 (a genuine regression). The
+      # achieved tier lands in the step output `tier` and the run's step
+      # summary, so per-project ecosystem progress stays visible over time.
+      - name: Tiered type-check
+        id: tiers
+        run: bash ../main/.github/scripts/tiered-tsc.sh
         working-directory: ./project
+        env:
+          PROJECT_NAME: ${{ matrix.project }}
+          TIER1_TS: ${{ inputs.tsVersion || '7.0' }}
   test_self:
     needs: lint
     name: Validate configs (TS ${{ matrix.ts_version }})
@@ -129,7 +116,7 @@ jobs:
           node-version: lts/*
       - run: npm install --ignore-scripts
       - run: npm install --no-save typescript@${{ matrix.ts_version }}
-      - run: npx tsc --version
+      - run: node node_modules/typescript/bin/tsc --version
       - name: Type-check every preset against the test stub
         # Each user-facing preset is validated the same way the root
         # tsconfig.json self-tests: extend it and point it at test.js.
@@ -140,12 +127,21 @@ jobs:
           for preset in base base-node-jsdoc base-browser-jsdoc nodenext browser node14 node16 node18 node20 node22 node24 node26; do
             echo "== ${preset} =="
             printf '{"extends":"./%s.json","files":["test.js"]}' "${preset}" > "tmp.${preset}.tsconfig.json"
-            npx tsc -p "tmp.${preset}.tsconfig.json"
+            node node_modules/typescript/bin/tsc -p "tmp.${preset}.tsconfig.json"
             rm "tmp.${preset}.tsconfig.json"
           done
   test_external_completed:
-    needs: test_external
+    needs:
+      - test_external
+      - test_self
     name: Tests completed
     runs-on: ubuntu-latest
+    # A skipped job would satisfy required status checks, so this gate must
+    # always run and assert its dependencies' results explicitly.
+    if: always()
     steps:
-    - run: echo Success!
+    - name: Assert all tests passed
+      run: |
+        [ "${{ needs.test_external.result }}" = "success" ] || { echo "test_external: ${{ needs.test_external.result }}"; exit 1; }
+        [ "${{ needs.test_self.result }}" = "success" ] || { echo "test_self: ${{ needs.test_self.result }}"; exit 1; }
+        echo Success!
