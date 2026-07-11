@@ -4,7 +4,7 @@
 
 TypeScript 7.0 is the native Go-based rewrite of the TypeScript compiler ("tsgo"). It reached stable release on January 15, 2026, and is available as both `typescript@7.0.x` and `@typescript/native-preview`. This document evaluates what TS 7.0 means for `@voxpelli/tsconfig` and what actions to take.
 
-The repo currently supports `typescript ~5.9.0 || ~6.0.0` with `devDependencies` on `~6.0.0`.
+The repo supports `typescript ~5.9.0 || ~6.0.0 || ~7.0.0` with `devDependencies` on `~7.0.0`.
 
 ---
 
@@ -21,8 +21,8 @@ None of the options removed in TS 7.0 are present: no `baseUrl`, `outFile`, `mod
 **S3: JSDoc-first, noEmit design.**
 Since all configs set `noEmit: true`, the repo is immune to tsgo's incomplete emit limitations (declaration emit, downlevel emit). Type-checking — tsgo's strongest capability (~99.97% parity) — is the only thing that matters here.
 
-**S4: CI already tests with tsgo.**
-The `external.yml` workflow has a `test_tsgo` job with `continue-on-error: true`, providing forward-compatibility signal.
+**S4: CI tests every config with TypeScript 7.**
+The `external.yml` workflow installs the locked TypeScript 7 release and treats validation failures as blocking.
 
 **S5: Node version configs pin `moduleResolution: "node16"`.**
 This avoids any drift if `nodenext` changes meaning in future TS versions.
@@ -52,11 +52,11 @@ TS 7.0 uses deterministic content-based type ordering (always-on). Users generat
 **O1: Drop TS 5.9, clean up redundant options.**
 Removing TS 5.9 support enables: removing `esModuleInterop: true`, `allowSyntheticDefaultImports: true`, `noUncheckedSideEffectImports: true` (all defaults in TS 6.0+), and switching node22/24 libs to `["es2025"]`.
 
-**O2: Add `~7.0.0` to peerDependencies.**
-Signals official tsgo support. Unblocks users who want to install without peer dep warnings.
+**O2: Declare `~7.0.0` in peerDependencies.**
+The peer range now signals official TypeScript 7 support and avoids warnings for users on the stable native compiler.
 
-**O3: Expand tsgo CI testing.**
-Test each config individually (not just `node18.json` via root tsconfig) to catch per-config issues.
+**O3: Keep TypeScript 7 CI coverage comprehensive.**
+Each config is parsed individually in addition to checking the root `node18.json`-based config.
 
 **O4: Add `node26.json` preset.**
 Node 26 expected April 2026. Clean config with `lib: ["es2025"]`, `target: "es2025"`.
@@ -70,8 +70,8 @@ Node 18 reached EOL April 2025. Update root `tsconfig.json` to extend `node20` o
 **O7: Add migration guidance to README.**
 Document TS 6.0 → 7.0 migration path: no `ignoreDeprecations`, type ordering diffs, glob resolution issue, JSDoc tag changes.
 
-**O8: Consider tsgo as primary dev dependency.**
-10x faster CI. Keep TS 6.0 in peerDeps for backward compatibility.
+**O8: Use TypeScript 7 as the primary dev dependency.**
+The stable native compiler is now used for local and CI validation, while TypeScript 5.9 and 6.0 remain in peerDependencies for backward compatibility.
 
 ### Threats — External risks to watch
 
@@ -101,7 +101,7 @@ If `nodenext` evolves differently in tsgo, the pinned `moduleResolution: "node16
 
 | # | Action | Effort | Impact |
 |---|--------|--------|--------|
-| 1 | Expand tsgo CI to test **each config** individually | Low | Medium |
+| 1 | ✅ Expand TypeScript 7 CI to test **each config** individually | Low | Medium |
 | 2 | Investigate JSDoc behavioral diffs by running tsgo against downstream projects | Medium | High |
 | 3 | Document known TS 7.0 migration notes in README | Medium | Medium |
 
@@ -118,9 +118,9 @@ If `nodenext` evolves differently in tsgo, the pinned `moduleResolution: "node16
 
 | # | Action | Effort | Impact |
 |---|--------|--------|--------|
-| 8 | Add `~7.0.0` to peerDependencies | Low | High |
-| 9 | Remove `continue-on-error: true` from tsgo CI job | Low | Medium |
-| 10 | Consider tsgo as primary devDependency | Low | Medium |
+| 8 | ✅ Add `~7.0.0` to peerDependencies | Low | High |
+| 9 | ✅ Remove `continue-on-error: true` from TypeScript 7 CI job | Low | Medium |
+| 10 | ✅ Use TypeScript 7 as the primary devDependency | Low | Medium |
 
 ### Phase 4: Forward-looking
 
@@ -134,11 +134,11 @@ If `nodenext` evolves differently in tsgo, the pinned `moduleResolution: "node16
 
 ## Key Decision Points
 
-1. **When to add TS 7.0 to peerDeps?** After confirming all configs pass `tsgo` validation without errors (CI job currently allows failure).
+1. **When to add TS 7.0 to peerDeps?** Done after confirming all configs parse and the root project passes with TypeScript 7.
 
 2. **When to drop TS 5.9?** Natural point is the next major version (v18.0.0). This unblocks Phase 2 actions.
 
-3. **When to make tsgo the primary dev dependency?** When declaration emit and JSDoc checking reach full parity. Currently risky for a JSDoc-first package due to T1.
+3. **When to make TypeScript 7 the primary dev dependency?** Done once the stable `typescript@7` package was available and all published configs passed validation. Consumers can still select TypeScript 5.9 or 6.0 through the peer range.
 
 4. **How to handle JSDoc behavioral differences?** Test downstream projects with tsgo, document known differences, and file issues on microsoft/typescript-go for regressions affecting JSDoc patterns.
 

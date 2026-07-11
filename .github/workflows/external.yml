@@ -105,20 +105,18 @@ jobs:
 
       - run: npx tsc
         working-directory: ./project
-  test_tsgo:
+  test_typescript_7:
     needs: lint
-    name: Validate with tsgo (TS 7)
+    name: Validate with TypeScript 7
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: lts/*
-      - run: npm install --ignore-scripts
-      - run: npm install @typescript/native-preview
-      - run: npx tsgo --version
-      - run: npx tsgo
+      - run: npm ci --ignore-scripts
+      - run: npx tsc --version
+      - run: npm test
   test_external_completed:
     needs: test_external
     name: Tests completed
