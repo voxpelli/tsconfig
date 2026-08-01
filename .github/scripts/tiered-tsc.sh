@@ -41,9 +41,11 @@ if npm install --force --ignore-scripts "typescript@${TIER1_TS}" &&
   node node_modules/typescript/bin/tsc --pretty false > tier1-tsc.log 2>&1
   tier1=$?
   cat tier1-tsc.log
+else
+  echo "TIER1_INFRA_FAILURE: npm install or tsc --version probe failed" | tee tier1-tsc.log
 fi
 echo "::endgroup::"
-if [ "$tier1" -eq 0 ]; then report "TS7-clean"; exit 0; fi
+if [ "$tier1" -eq 0 ]; then rm -f tier1-tsc.log; report "TS7-clean"; exit 0; fi
 
 # Classify the tier-1 failure so ecosystem blockage (broken .d.ts in
 # node_modules, e.g. tools built on the removed TS 6 compiler API) is
@@ -65,8 +67,12 @@ if npm install --force --ignore-scripts \
      'typescript@npm:@typescript/typescript6@^6.0.2' \
      "typescript-7@npm:typescript@${TIER1_TS}" &&
    node node_modules/typescript-7/bin/tsc --version; then
-  node node_modules/typescript-7/bin/tsc --pretty false
+  node node_modules/typescript-7/bin/tsc --pretty false > tier2-tsc.log 2>&1
   tier2=$?
+  cat tier2-tsc.log
+  [ "$tier2" -eq 0 ] && rm -f tier2-tsc.log
+else
+  echo "TIER2_INFRA_FAILURE: npm install or tsc --version probe failed"
 fi
 echo "::endgroup::"
 if [ "$tier2" -eq 0 ]; then report "TS7+compat"; exit 0; fi
@@ -79,8 +85,12 @@ npm pkg delete devDependencies.typescript-7 dependencies.typescript-7
 rm -rf node_modules/typescript-7 node_modules/.bin/tsc node_modules/.bin/tsserver
 if npm install --force --ignore-scripts "typescript@${TIER3_TS}" &&
    node node_modules/typescript/bin/tsc --version; then
-  node node_modules/typescript/bin/tsc --pretty false
+  node node_modules/typescript/bin/tsc --pretty false > tier3-tsc.log 2>&1
   tier3=$?
+  cat tier3-tsc.log
+  [ "$tier3" -eq 0 ] && rm -f tier3-tsc.log
+else
+  echo "TIER3_INFRA_FAILURE: npm install or tsc --version probe failed"
 fi
 echo "::endgroup::"
 if [ "$tier3" -eq 0 ]; then report "TS6-only"; exit 0; fi
