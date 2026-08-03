@@ -1,0 +1,35 @@
+name: Update baseline data
+
+on:
+  schedule:
+    # At 6:37 on day-of-month 4: https://crontab.guru/#37_6_4_*_*
+    - cron: '37 6 4 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    name: Update baseline data
+    if: github.event_name != 'schedule' || github.repository == 'voxpelli/tsconfig'
+    uses: voxpelli/ghatemplates/.github/workflows/sync-reusable.yml@main
+    secrets: inherit
+    with:
+      app-id: '1082006'
+      diff-files: baseline-data/browser-lib-status.json
+      lockfile: true
+      npm-sync-script: 'baseline'
+      branch-name: 'automated/baseline'
+      commit-message: 'chore(baseline): update browser lib Baseline data'
+      pr-title: 'chore(baseline): update browser lib Baseline data'
+      pr-body: |
+        The Baseline status of the ES features behind the browser preset's `lib` choice has changed.
+
+        This PR contains regenerated `baseline-data/browser-lib-status.json`. If `recommendedLib` no longer matches `currentLib`, consider bumping the `lib` in `base-browser-bare.json` in a separate (release-worthy) PR. Verify that everything looks alright and that tests passes, then merge.
+
+        _Do not push to this PR. It's handled by [a workflow](/${{ github.repository }}/actions/runs/${{ github.run_id }}) which keeps it up to date at a schedule._
