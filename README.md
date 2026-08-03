@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@voxpelli/tsconfig.svg?style=flat)](https://www.npmjs.com/package/@voxpelli/tsconfig)
 [![npm downloads](https://img.shields.io/npm/dm/@voxpelli/tsconfig.svg?style=flat)](https://www.npmjs.com/package/@voxpelli/tsconfig)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/voxpelli/tsconfig)
 [![Follow @voxpelli@mastodon.social](https://img.shields.io/mastodon/follow/109247025527949675?domain=https%3A%2F%2Fmastodon.social&style=social)](https://mastodon.social/@voxpelli)
 
 My personal [types in js](https://github.com/voxpelli/types-in-js) focused tsconfig bases.
