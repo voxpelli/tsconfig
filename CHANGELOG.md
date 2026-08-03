@@ -1,5 +1,12 @@
 # Changelog
 
+## [16.2.2](https://github.com/voxpelli/tsconfig/compare/v16.2.1...v16.2.2) (2026-08-03)
+
+
+### 📚 Documentation
+
+* add DeepWiki badge to README ([e43a8ee](https://github.com/voxpelli/tsconfig/commit/e43a8ee74c28677414d1bbbacb00b845d4f7ecbe))
+
 ## [16.2.1](https://github.com/voxpelli/tsconfig/compare/v16.2.0...v16.2.1) (2026-04-15)
 
 
