@@ -92,7 +92,7 @@ Until the ecosystem catches up, TypeScript's own recommendation is to keep 6.0 a
 
 **Caveat:** with this setup, don't trust a bare `npx tsc` — the compat package transitively includes real TypeScript 6, whose `tsc` bin can win the `node_modules/.bin/tsc` link over `typescript-7`'s (npm picks an arbitrary winner on bin conflicts; in our testing the 6.0 bin won). Invoke TypeScript 7 by direct path instead, e.g. a script `"tsc7": "node node_modules/typescript-7/bin/tsc"`, and verify with `--version` (should report 7.x). With the alias in place, type-checking with `skipLibCheck: false` works again even alongside packages like `@typescript-eslint/*` whose bundled types still target the 6.0 compiler API.
 
-Also note: TypeScript 7 ships no `tsserver` binary — editors use its new LSP-based server instead, and any tooling that spawns `tsserver` needs TypeScript 6 present.
+Also note: TypeScript 7 does not ship the legacy Node.js `tsserver` target — editors should use its new LSP-based server instead, and tooling that spawns the legacy `tsserver` needs TypeScript 6 present.
 
 #### Generating type declarations under TypeScript 7
 
