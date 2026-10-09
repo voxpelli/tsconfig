@@ -100,15 +100,11 @@ for (const year of Object.keys(MARKERS).sort()) {
 
 const yearNames = Object.keys(years);
 const newestWhere = minimumRank => {
-  // Scan cumulatively: only return a year if ALL years up to and including it meet minimumRank
+  // A later edition includes earlier types, so stop at the first gap.
   let candidate = null;
   for (const year of yearNames) {
-    if (VERDICTS.indexOf(years[year].verdict) >= minimumRank) {
-      candidate = year;
-    } else {
-      // Gap found: reset candidate since we can't skip over a non-qualifying year
-      candidate = null;
-    }
+    if (VERDICTS.indexOf(years[year].verdict) < minimumRank) break;
+    candidate = year;
   }
   return candidate;
 };

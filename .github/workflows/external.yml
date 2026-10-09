@@ -138,6 +138,7 @@ jobs:
           done
   test_external_completed:
     needs:
+      - read_external_projects
       - test_external
       - test_self
     name: Tests completed
@@ -148,6 +149,7 @@ jobs:
     steps:
     - name: Assert all tests passed
       run: |
+        [ "${{ needs.read_external_projects.result }}" = "success" ] || { echo "read_external_projects: ${{ needs.read_external_projects.result }}"; exit 1; }
         case "${{ needs.test_external.result }}" in
           success|skipped) ;;
           *) echo "test_external: ${{ needs.test_external.result }}"; exit 1 ;;
