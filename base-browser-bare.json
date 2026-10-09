@@ -5,7 +5,7 @@
   "extends": "./base-node-bare.json",
 
   "compilerOptions": {
-    "lib": ["ES2022", "DOM"],
+    "lib": ["ES2025", "DOM", "DOM.Iterable"],
     "types": []
   }
 }

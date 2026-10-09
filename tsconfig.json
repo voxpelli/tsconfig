@@ -1,5 +1,5 @@
 {
-  "extends": "./node18.json",
+  "extends": "./node22.json",
   "files": [
     "test.js"
   ]
