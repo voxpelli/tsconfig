@@ -1,4 +1,8 @@
 {
+  "blockedByDependencyTypeConflicts": [
+    "voxpelli/node-pg-pubsub",
+    "voxpelli/plugin-importer"
+  ],
   "isFork": [
     "nhtf/pg-session-store"
   ],
