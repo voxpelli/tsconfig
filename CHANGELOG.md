@@ -1,5 +1,35 @@
 # Changelog
 
+## [17.0.0](https://github.com/voxpelli/tsconfig/compare/v16.2.1...v17.0.0) (2026-10-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* drops support for TypeScript 5.9; the minimum supported TypeScript version is now 6.0. Projects still on TS 5.9 should stay on the 16.x line.
+
+### 🌟 Features
+
+* support TypeScript 7.0 and drop TypeScript 5.9 ([5444c3b](https://github.com/voxpelli/tsconfig/commit/5444c3bdfd43daf3891f3eea04e15b071d6c5109))
+
+
+### 🩹 Fixes
+
+* add DOM.Iterable to browser lib, JSDoc self-test, TS 7 docs ([c98c4ce](https://github.com/voxpelli/tsconfig/commit/c98c4ce9601fee747a43812854d6d5f5a5ac037b))
+* address remaining TypeScript 7 review feedback ([1fe5d35](https://github.com/voxpelli/tsconfig/commit/1fe5d35f5f329135eca8b2eecf44a2b6c34a0547))
+* apply CodeRabbit auto-fixes ([4050b92](https://github.com/voxpelli/tsconfig/commit/4050b92c68345afcf274a69436ca4c0a2a8d21da))
+* harden TypeScript 7 PR workflows ([698eee5](https://github.com/voxpelli/tsconfig/commit/698eee5db446b1474acfc30d2eb045fdf5106aa8))
+* harden TypeScript 7 PR workflows ([a79e4f0](https://github.com/voxpelli/tsconfig/commit/a79e4f0f9b3ab9cbf85682d34c4d7c5c23460ce9))
+
+
+### 📚 Documentation
+
+* add DeepWiki badge to README ([e43a8ee](https://github.com/voxpelli/tsconfig/commit/e43a8ee74c28677414d1bbbacb00b845d4f7ecbe))
+
+
+### 🧹 Chores
+
+* exclude dependency type conflict canaries ([ee8bf35](https://github.com/voxpelli/tsconfig/commit/ee8bf355f9c327dea76ff55daecff2d4c06e8434))
+
 ## [16.2.1](https://github.com/voxpelli/tsconfig/compare/v16.2.0...v16.2.1) (2026-04-15)
 
 
