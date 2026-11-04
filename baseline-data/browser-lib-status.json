@@ -30,16 +30,18 @@
       "verdict": "newly-available",
       "features": {
         "array-group": {
-          "baseline": "newly-available",
-          "newlyAvailableSince": "2024-03-05"
+          "baseline": "widely-available",
+          "newlyAvailableSince": "2024-03-05",
+          "widelyAvailableSince": "2026-09-05"
         },
         "atomics-wait-async": {
           "baseline": "newly-available",
           "newlyAvailableSince": "2025-11-11"
         },
         "promise-withresolvers": {
-          "baseline": "newly-available",
-          "newlyAvailableSince": "2024-03-05"
+          "baseline": "widely-available",
+          "newlyAvailableSince": "2024-03-05",
+          "widelyAvailableSince": "2026-09-05"
         },
         "resizable-buffers": {
           "baseline": "newly-available",
@@ -85,8 +87,9 @@
       "verdict": "limited-availability",
       "features": {
         "array-fromasync": {
-          "baseline": "newly-available",
-          "newlyAvailableSince": "2024-01-25"
+          "baseline": "widely-available",
+          "newlyAvailableSince": "2024-01-25",
+          "widelyAvailableSince": "2026-07-25"
         },
         "explicit-resource-management": {
           "baseline": "limited-availability"
